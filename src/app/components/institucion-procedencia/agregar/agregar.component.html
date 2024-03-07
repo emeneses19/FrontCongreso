@@ -1,0 +1,25 @@
+<div class="agregar-institucion-procedencia">
+    <h2 mat-dialog-title>Agregar Institucion Procedencia</h2>
+    <mat-dialog-content>
+        @if (error) {
+        <div class="mensaje-error">
+            <span>{{textoError}}</span>
+        </div>
+        }
+        <form class="form" #formulario="ngForm">
+            <mat-form-field>
+                <mat-label>Código</mat-label>
+                <input [(ngModel)]="institucionProcedencia.cod_procedencia" name="cod_procedencia" matInput
+                    required="required">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input [(ngModel)]="institucionProcedencia.nombre" name="nombre" matInput required>
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="btn-agregar" type="submit" mat-button (click)="guardar(formulario)">Agregar</button>
+        <button mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
+    </mat-dialog-actions>
+</div>

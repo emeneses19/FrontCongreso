@@ -1,0 +1,48 @@
+.agregar-institucion-procedencia {
+    width: 500PX;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-dialog-actions button {
+    width: 100px;
+}
+
+mat-dialog-actions .btn-agregar {
+    background-color: var(--color-verde);
+    color: #fcfcfc;
+}
+
+mat-dialog-content form {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    /* Cambia la presentación a inline-block */
+    text-align: left;
+    /* Alinea el texto a la izquierda dentro del formulario */
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+dialog-actions {
+    justify-content: center;
+}
+
+/* mensaje error */
+.mensaje-error {
+    display: inline-block;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
