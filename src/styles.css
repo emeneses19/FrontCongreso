@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --color-primario: #006ff9;
+    --color-primario: #1772b8;
     --color-secundario: #f7f9fb;
-    --color-azul: #00a3ff;
-    --color-verde: #50b77b;
+    --color-azul: #008aca;
+    --color-verde: #23a86d;
+    --color-negro: #1f1f21;
 }
 
 html,
