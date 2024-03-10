@@ -10,6 +10,10 @@ import { MaterialModule } from './shared/modules/material.module';
 import { InstitucionProcedenciaComponent } from './components/institucion-procedencia/institucion-procedencia.component';
 import { AgregarComponent } from './components/institucion-procedencia/agregar/agregar.component';
 import { FormsModule } from '@angular/forms';
+import { AuxiliaresComponent } from './components/auxiliares/auxiliares.component';
+import { CategoriaComponent } from './components/auxiliares/categoria/categoria.component';
+import { EstadoInscripcionComponent } from './components/auxiliares/estado-inscripcion/estado-inscripcion.component';
+import { CongresoComponent } from './components/auxiliares/congreso/congreso.component';
 
 
 @NgModule({
@@ -18,6 +22,10 @@ import { FormsModule } from '@angular/forms';
     EventoComponent,
     InstitucionProcedenciaComponent,
     AgregarComponent,
+    AuxiliaresComponent,
+    CategoriaComponent,
+    EstadoInscripcionComponent,
+    CongresoComponent,
   ],
   imports: [
     BrowserModule,
