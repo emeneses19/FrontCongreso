@@ -1,0 +1,27 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.material-icons .close {
+  font-style: normal;
+  text-decoration: none;
+
+  
+
+}
+
+.encabezado{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.encabezado2{
+  padding-top: 1rem;
+}
