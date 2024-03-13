@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { InstitucionProcedenciaModel } from '../../../models/institucion-procedencia.model';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { InstitucionProcedenciaModel } from '../../../models/institucion-procedencia.model';
 
 @Component({
-  selector: 'app-agregar',
-  templateUrl: './agregar.component.html',
-  styleUrl: './agregar.component.css'
+  selector: 'app-institucion-procedencia',
+  templateUrl: './institucion-procedencia.component.html',
+  styleUrl: './institucion-procedencia.component.css'
 })
-export class AgregarComponent implements OnInit {
+export class InstitucionProcedenciaComponent {
   institucionProcedencia: InstitucionProcedenciaModel = new InstitucionProcedenciaModel();
   textoError: string = 'texto error';
   error: boolean = true;

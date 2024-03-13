@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoriaComponent } from './categoria/categoria.component';
-import { AgregarComponent } from '../institucion-procedencia/agregar/agregar.component';
+import { InstitucionProcedenciaComponent } from './institucion-procedencia/institucion-procedencia.component';
 
 @Component({
   selector: 'app-auxiliares',
@@ -14,7 +14,7 @@ export class AuxiliaresComponent {
   openDialog() {
     this.dialog.open(CategoriaComponent);
   }
-  openDialog2(){
-    this.dialog.open(AgregarComponent);
+  openInstitucionProcendia(){
+    this.dialog.open(InstitucionProcedenciaComponent);
   }
 }

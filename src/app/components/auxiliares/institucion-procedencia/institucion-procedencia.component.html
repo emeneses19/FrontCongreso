@@ -1,0 +1,63 @@
+<div class="agregar-institucion-procedencia">
+    <div class="cabezera-formulario">
+        <h2 mat-dialog-title>Agregar Institucion Procedencia</h2>
+        <span class="material-icons">
+            <a href="" class="close">
+                close
+            </a>
+        </span>
+    </div>
+    <div class="formulario-institucion-procedencia">
+        <mat-dialog-content>
+            @if (error) {
+            <div class="mensaje-error">
+                <span>{{textoError}}</span>
+            </div>
+            }
+            <form class="form" #formulario="ngForm">
+                <mat-form-field>
+                    <mat-label>Código</mat-label>
+                    <input [(ngModel)]="institucionProcedencia.cod_procedencia" name="cod_procedencia" matInput
+                        required="required">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input [(ngModel)]="institucionProcedencia.nombre" name="nombre" matInput required>
+                </mat-form-field>
+            </form>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button class="btn-agregar" type="submit" mat-button (click)="guardar(formulario)">Agregar</button>
+        </mat-dialog-actions>
+    </div>
+    <div class="lista-institucion-procedencia">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="material-icons">
+                            delete
+                        </span></td>
+                    <td>01</td>
+                    <td>Estudiante</td>
+                </tr>
+                <tr>
+                    <td><span class="material-icons">
+                            delete
+                        </span></td>
+                    <td>02</td>
+                    <td>Delegación</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
