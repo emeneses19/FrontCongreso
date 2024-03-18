@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 700px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  
+  .material-icons .close {
+    font-style: normal;
+    text-decoration: none;
+  
+  }
