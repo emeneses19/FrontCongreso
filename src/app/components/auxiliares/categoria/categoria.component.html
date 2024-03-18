@@ -3,7 +3,7 @@
         <div class="col">
             <div class="encabezado">
                 <div>
-                    <h2 mat-dialog-title>Categoria</h2>
+                    <h2 class="titulodialog" mat-dialog-title>Categoria</h2>
                 </div>
                 <div class="encabezado2">
                     <span class="material-icons">
@@ -12,16 +12,14 @@
                         </a>
                     </span>
                 </div>
-
-
             </div>
             <mat-dialog-content class="mat-dialog-container">
                 <form class="example-form">
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Código</mat-label>
                         <input matInput #postalCode maxlength="5" placeholder="Escriba un código">
                     </mat-form-field>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Descripción</mat-label>
                         <input matInput placeholder="Escriba una descripción">
                     </mat-form-field>
@@ -35,7 +33,6 @@
                                 <th scope="col">Código</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col"></th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -58,17 +55,6 @@
                 </form>
 
             </mat-dialog-content>
-
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-
 
         </div>
     </div>
