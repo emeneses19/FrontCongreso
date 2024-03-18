@@ -1,8 +1,8 @@
 export class InstitucionProcedenciaModel {
-    cod_procedencia: string;
+    codProcedencia: string;
     nombre: string;
     constructor() {
-        this.cod_procedencia = '';
+        this.codProcedencia = '';
         this.nombre = '';
     }
 }

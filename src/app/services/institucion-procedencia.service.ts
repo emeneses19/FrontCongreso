@@ -7,7 +7,7 @@ import { InstitucionProcedenciaModel } from '../models/institucion-procedencia.m
 export class InstitucionProcedenciaService {
   listaInstitucionProcedencia: InstitucionProcedenciaModel[] = [
     {
-      cod_procedencia: '20240703125',
+      codProcedencia: '20240703125',
       nombre: 'UTP',
     }
   ];

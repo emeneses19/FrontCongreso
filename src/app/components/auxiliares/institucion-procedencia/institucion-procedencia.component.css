@@ -4,15 +4,19 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+
 }
 
 mat-dialog-actions button {
     width: 100px;
 }
 
-mat-dialog-actions .btn-agregar {
+mat-dialog-actions .btn-guardar {
     background-color: var(--color-verde);
     color: #fcfcfc;
+    width: 156px;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 mat-dialog-content form {
@@ -21,9 +25,7 @@ mat-dialog-content form {
 
 form {
     display: inline-block;
-    /* Cambia la presentación a inline-block */
     text-align: left;
-    /* Alinea el texto a la izquierda dentro del formulario */
 }
 
 mat-form-field {
@@ -38,7 +40,7 @@ dialog-actions {
 .mensaje-error {
     display: inline-block;
     background-color: #f8d7da;
-    color: #721c24;
+    color: #93333c;
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 14px;
@@ -47,17 +49,16 @@ dialog-actions {
 }
 
 
-  .cabezera-formulario {
+.cabezera-formulario {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
-    background-color: var(--color-secundario);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.181)
+    padding: 10px 20px;
 }
 
 .cabezera-formulario h2 {
     margin: 0;
+    margin-left: -12px;
 }
 
 .material-icons {
@@ -71,4 +72,10 @@ dialog-actions {
 
 .material-icons a:hover {
     color: var(--color-azul);
+}
+
+/* estilos de la lsita */
+.lista-institucion-procedencia {
+    max-height: 300px;
+    overflow-y: auto;
 }
