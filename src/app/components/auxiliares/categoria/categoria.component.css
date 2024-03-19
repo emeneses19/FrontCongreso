@@ -1,11 +1,24 @@
-.example-form {
+.cabezera-categoria{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cabezera-categoria .titulo-dialog{
+  margin-bottom: 0px;
+}
+
+.formulario-categoria {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
 }
 
-.example-full-width {
+mat-form-field {
   width: 100%;
+}
+
+.material-icons{
+  padding: 20px
 }
 
 .material-icons .close {
@@ -14,12 +27,11 @@
 
 }
 
-.encabezado{
-  display: flex;
-  justify-content: space-between;
-
+.table td{
+  vertical-align: middle;
 }
 
-.encabezado2{
-  padding-top: 1rem;
+mat-dialog-actions .btn-guardar{
+  background-color: var(--color-verde);
+  color: #fcfcfc;
 }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, NgForm, Validators } from '@angular/forms';
+import { MyErrorStateMatcher } from '../institucion-procedencia/institucion-procedencia.component';
+import { EstadoInscripcionModel } from '../../../models/estado-inscripcion.model';
 
 @Component({
   selector: 'app-estado-inscripcion',
@@ -6,9 +9,29 @@ import { Component } from '@angular/core';
   styleUrl: './estado-inscripcion.component.css'
 })
 export class EstadoInscripcionComponent {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
 
-  hide = true;
+  estadoInscripcion: EstadoInscripcionModel = new EstadoInscripcionModel();
+  textoError: string = 'texto error';
+  error: boolean = true;
+
+  matcher = new MyErrorStateMatcher();
+
+  nombre = new FormControl('', [Validators.required, Validators.minLength(5)]);
+
+  constructor() {
+
+  }
+  ngOnInit(): void {
+    this.generarIdParaEstadoInscripcion();
+  }
+
+  guardar(form: NgForm) {
+    console.log(form);
+  }
+
+  generarIdParaEstadoInscripcion() {
+    const timestamp = new Date().getTime().toString();
+    this.estadoInscripcion = new EstadoInscripcionModel();
+    this.estadoInscripcion.codIsncripcion = timestamp;
+  }
 }
