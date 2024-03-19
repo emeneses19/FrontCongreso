@@ -1,105 +1,50 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title-group>
-            <mat-card-title>ESTADO DE INSCRIPCIÓN</mat-card-title>
-            <span class="material-icons">
-              <a href="" class="close">
+<div class="agregar-institucion-procedencia">
+    <div class="cabezera-formulario">
+        <h2 mat-dialog-title>Agregar Institucion Procedencia</h2>
+        <span class="material-icons">
+            <a href="" class="close">
                 close
-              </a>
-            </span>
-          </mat-card-title-group>
-        </mat-card-header>
-        <mat-card-content>
+            </a>
+        </span>
+    </div>
+    <div class="formulario-institucion-procedencia">
+        <mat-dialog-content>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Código</mat-label>
-            <input matInput placeholder="Escriba un código">
-          </mat-form-field>
+            <form class="form" #formulario="ngForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Código</mat-label>
+                    <input [(ngModel)]="estadoInscripcion.codIsncripcion" name="codProcedencia" matInput
+                        required="required" #codProcedencia="ngModel">
+                    <mat-error *ngIf="codProcedencia.invalid && (codProcedencia.dirty || codProcedencia.touched)">
+                        <ng-container>Campo es
+                            <strong>obligatorio</strong>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input class="campo-no-valido" [(ngModel)]="estadoInscripcion.descripcion" name="descripcion" matInput
+                        required minlength="4" #descripcion="ngModel">
+                    <mat-error *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <ng-container *ngIf="descripcion.errors?.['required']">Campo es
+                            <strong>obligatorio</strong>
+                        </ng-container>
+                        <ng-container *ngIf="descripcion.errors?.['minlength']">
+                            El nombre debe tener <strong>al menos 5 caracteres</strong>
+                        </ng-container>
+                    </mat-error>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Descripción</mat-label>
-            <input matInput placeholder="Escriba una descripción">
-          </mat-form-field>
-
-        </mat-card-content>
-
-        <mat-card-actions align="end">
-          <button mat-button>GUARDAR</button>
-        </mat-card-actions>
-
-        <mat-card-content>
-          {{longText}}
-        </mat-card-content>
-      </mat-card>
-
-
-      <mat-dialog-content class="example-card">
-        <div class="col">
-          <mat-card-title-group>
-            <mat-card-title>ESTADO DE INSCRIPCIÓN</mat-card-title>
-            <span class="material-icons">
-              <a href="" class="close">
-                close
-              </a>
-            </span>
-          </mat-card-title-group>
-        </div>
-
-        <div class="col-12 col-md-4 p-1">
-          <mat-form-field appearance="outline">
-            <mat-label>Código</mat-label>
-            <input matInput placeholder="Escriba un código">
-          </mat-form-field>
-        </div >
-        <div class="col-12 col-md-8 p-1">
-          <mat-form-field appearance="outline">
-            <mat-label>Descripción</mat-label>
-            <input matInput placeholder="Escriba una descripción">
-          </mat-form-field>
-
-        </div>
-
-
-        <div class="col" align="end">
-          <button mat-button>GUARDAR</button>
-        </div>
-
-        <div class="col">
-          <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="material-icons">
-                      <a href="">
-                        delete
-                      </a>
-                            
-                        </span></td>
-                    <td>01</td>
-                    <td>Estudiante</td>
-                </tr>
-                <tr>
-                    <td><span class="material-icons">
-                            delete
-                        </span></td>
-                    <td>02</td>
-                    <td>Delegación</td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-      </mat-dialog-content>
+                </mat-form-field>
+                <mat-dialog-actions align="end">
+                    <button class="btn-guardar" type="submit" mat-button (click)="guardar(formulario)">Guardar</button>
+                </mat-dialog-actions>
+            </form>
+        </mat-dialog-content>
 
     </div>
-  </div>
+    <div class="lista-institucion-procedencia">
+        
+    </div>
 </div>
+
+

@@ -1,61 +1,83 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="encabezado">
-                <div>
-                    <h2 class="titulodialog" mat-dialog-title>Categoria</h2>
-                </div>
-                <div class="encabezado2">
-                    <span class="material-icons">
-                        <a href="" class="close">
-                            close
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <mat-dialog-content class="mat-dialog-container">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Código</mat-label>
-                        <input matInput #postalCode maxlength="5" placeholder="Escriba un código">
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Descripción</mat-label>
-                        <input matInput placeholder="Escriba una descripción">
-                    </mat-form-field>
-                    <mat-dialog-actions align="end">
-                        <button mat-raised-button color="primary">GUARDAR</button>
-                    </mat-dialog-actions>
-                    <hr>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Código</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="material-icons">
-                                        delete
-                                    </span></td>
-                                <td>01</td>
-                                <td>Estudiante</td>
-                            </tr>
-                            <tr>
-                                <td><span class="material-icons">
-                                        delete
-                                    </span></td>
-                                <td>02</td>
-                                <td>Delegación</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
+<div class="agregar-categoria">
+    <div class="cabezera-categoria">
+        <h2 class="titulo-dialog" mat-dialog-title>Categoria</h2>
+        <span class="material-icons">
+            <a href="" class="close">
+                close
+            </a>
+        </span>
+    </div>
 
-            </mat-dialog-content>
+    <div class="formulario-categoria">
+        <mat-dialog-content>
+            <form class="form" #formulario="ngForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Código</mat-label>
+                    <input [(ngModel)]="categoria.codCategoria" name="codCategoria" matInput required="required"
+                        #codCategoria="ngModel" placeholder="Escriba un código" maxlength="5">
+                    <mat-error>
+                        <ng-container>Campo es
+                            <strong>obligatorio</strong>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input class="campo-no-valido" [(ngModel)]="categoria.descripcion" name="descripcion" matInput
+                        required minlength="5" #descripcion="ngModel" placeholder="Escriba una descripción">
+                    <mat-error>
+                        <ng-container *ngIf="descripcion.errors?.['required']">Campo es
+                            <strong>obligatorio</strong>
+                        </ng-container>
+                        <ng-container *ngIf="descripcion.errors?.['minlength']">
+                            El nombre debe tener <strong>al menos 5 caracteres</strong>
+                        </ng-container>
+                    </mat-error>
 
-        </div>
+                </mat-form-field>
+                <mat-dialog-actions align="end">
+                    <button class="btn-guardar" mat-raised-button>GUARDAR</button>
+                </mat-dialog-actions>
+            </form>
+        </mat-dialog-content>
+    </div>
+
+
+    <div class="lista-categoria">
+        <mat-dialog-content>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Acciones</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button><mat-icon>delete</mat-icon></button>
+
+                        </td>
+                        <td>01</td>
+                        <td>Estudiante</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button mat-icon-button matTooltip="warn" color="warn"
+                                aria-label="Example icon-button with a heart icon">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button mat-icon-button matTooltip="primary" color="primary"
+                                aria-label="Example icon-button with a heart icon">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                        <td>02</td>
+                        <td>Egresado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-dialog-content>
     </div>
 </div>

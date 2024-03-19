@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CategoriaModel } from '../../../models/categoria.model';
 
 @Component({
   selector: 'app-categoria',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class CategoriaComponent {
 
-  
+  categoria:CategoriaModel = new CategoriaModel();
 
+  guardarCategoria(){
 
   }
+}
 
