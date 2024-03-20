@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2'
+import { InstitucionProcedenciaModel } from '../../../../models/institucion-procedencia.model';
 
 @Component({
   selector: 'app-lista',
@@ -7,16 +9,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './lista.component.css'
 })
 export class ListaComponent {
-  constructor(
-    private _snackBar: MatSnackBar
-  ) {
+  listaInstitucionProcedencia: InstitucionProcedenciaModel[] = [];
+  constructor( ) {
 
   }
 
   eliminarInstitucionProcedencia() {
-    this._snackBar.open('El registro fue eliminado con éxito', 'aceptar', {
-      verticalPosition: 'top',
-      panelClass: ['custom-snackbar']
+    Swal.fire({
+      text: `Esta seguro de eliminar? `,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
     });
   }
 

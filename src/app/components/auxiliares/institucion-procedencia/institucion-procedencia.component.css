@@ -1,5 +1,5 @@
 .agregar-institucion-procedencia {
-    width: 500PX;
+    width: 500px;
     padding: 10px;
     text-align: center;
     display: flex;
@@ -12,7 +12,7 @@ mat-dialog-actions button {
 }
 
 mat-dialog-actions .btn-guardar {
-    background-color: var(--color-verde);
+    background-color: var(--color-primario);
     color: #fcfcfc;
     width: 156px;
     margin-right: 0;
@@ -44,7 +44,7 @@ dialog-actions {
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600px;
     margin-bottom: 10px;
 }
 
@@ -76,6 +76,6 @@ dialog-actions {
 
 /* estilos de la lsita */
 .lista-institucion-procedencia {
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
 }
