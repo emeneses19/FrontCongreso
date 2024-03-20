@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
-import { MyErrorStateMatcher } from '../institucion-procedencia/institucion-procedencia.component';
 import { EstadoInscripcionModel } from '../../../models/estado-inscripcion.model';
 
 @Component({
@@ -14,7 +13,6 @@ export class EstadoInscripcionComponent {
   textoError: string = 'texto error';
   error: boolean = true;
 
-  matcher = new MyErrorStateMatcher();
 
   nombre = new FormControl('', [Validators.required, Validators.minLength(5)]);
 

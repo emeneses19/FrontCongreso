@@ -16,9 +16,12 @@ export class ListaComponent {
 
   eliminarInstitucionProcedencia() {
     Swal.fire({
-      text: `Esta seguro de eliminar? `,
+      title:'Aviso',
+      text: `Esta seguro de eliminar el registro? `,
       showCancelButton: true,
       confirmButtonText: 'Aceptar',
+      confirmButtonColor: "#1772b8",
+      width: 400,
     });
   }
 

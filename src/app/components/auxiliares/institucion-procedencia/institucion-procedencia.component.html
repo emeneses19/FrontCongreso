@@ -1,11 +1,9 @@
 <div class="agregar-institucion-procedencia">
     <div class="cabezera-formulario">
         <h2 mat-dialog-title>Agregar Institucion Procedencia</h2>
-        <span class="material-icons">
-            <a href="" class="close">
-                close
-            </a>
-        </span>
+        <mat-dialog-actions>
+                <mat-icon mat-button mat-dialog-close aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+        </mat-dialog-actions>
     </div>
     <div class="formulario-institucion-procedencia">
         <mat-dialog-content>
@@ -46,6 +44,7 @@
         </mat-dialog-content>
 
     </div>
+    <mat-divider></mat-divider>
     <div class="lista-institucion-procedencia">
         <app-lista></app-lista>
     </div>

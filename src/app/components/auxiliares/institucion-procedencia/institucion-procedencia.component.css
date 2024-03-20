@@ -1,81 +1,54 @@
 .agregar-institucion-procedencia {
-    width: 500px;
-    padding: 10px;
-    text-align: center;
+    width: 550px;
+    padding: 0 1.2rem;
+}
+.cabezera-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        mat-icon{
+            color: var(--color-primario);
+        }
+}
+.formulario-institucion-procedencia{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+mat-dialog-content .mensaje-error{
+    text-align: center;    
+    margin-bottom: 0.6rem;
+    margin-top: 0px;
+    span{
+        background-color: #f3dedf;
+        color: #f44336;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold; 
+    }  
+}
+.formulario-institucion-procedencia mat-dialog-content form{
     display: flex;
     flex-direction: column;
-
 }
-
-mat-dialog-actions button {
-    width: 100px;
+mat-form-field {
+    width: 100%;
+}
+mat-dialog-actions{
+    margin: 0;
+    padding: 0;
 }
 
 mat-dialog-actions .btn-guardar {
     background-color: var(--color-primario);
     color: #fcfcfc;
     width: 156px;
-    margin-right: 0;
-    padding-right: 0;
-}
-
-mat-dialog-content form {
-    text-align: center;
-}
-
-form {
-    display: inline-block;
-    text-align: left;
-}
-
-mat-form-field {
-    width: 100%;
-}
-
-dialog-actions {
-    justify-content: center;
-}
-
-/* mensaje error */
-.mensaje-error {
-    display: inline-block;
-    background-color: #f8d7da;
-    color: #93333c;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600px;
-    margin-bottom: 10px;
-}
-
-
-.cabezera-formulario {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.cabezera-formulario h2 {
-    margin: 0;
-    margin-left: -12px;
-}
-
-.material-icons {
-    font-size: 24px;
-}
-
-.material-icons a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.material-icons a:hover {
-    color: var(--color-azul);
 }
 
 /* estilos de la lsita */
 .lista-institucion-procedencia {
     max-height: 200px;
     overflow-y: auto;
+    margin: 0.5rem;
 }

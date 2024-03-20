@@ -13,4 +13,25 @@ export class InstitucionProcedenciaService {
   ];
 
   constructor() { }
+  agregarInstitucionProcedencia(institucionProcedencia: InstitucionProcedenciaModel){
+    this.listaInstitucionProcedencia.push(institucionProcedencia);
+  }
+  eliminarInstitucionProcedencia(institucionProcedencia: InstitucionProcedenciaModel){
+    const index = this.listaInstitucionProcedencia.findIndex(item => item === institucionProcedencia);
+    if (index !== -1) {
+      this.listaInstitucionProcedencia.splice(index, 1);
+    }
+  }
+  actualizarInstitucionProcedencia(institucionProcedenciaActualizado: InstitucionProcedenciaModel){
+    const index = this.listaInstitucionProcedencia.findIndex(item => item.codProcedencia === institucionProcedenciaActualizado.codProcedencia);
+    if (index !== -1) {
+      this.listaInstitucionProcedencia[index] = institucionProcedenciaActualizado;
+    }
+  }
+  obtenerInstitucionProcedencia(idInstitucionProcedencia: string){
+    
+  }
+  obtenerInstitucionesDeProcedencia(){
+    return this.listaInstitucionProcedencia;
+  }
 }
