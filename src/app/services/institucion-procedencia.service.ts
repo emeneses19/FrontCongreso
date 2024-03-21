@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InstitucionProcedenciaModel } from '../models/institucion-procedencia.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class InstitucionProcedenciaService {
     }
   ];
 
-  constructor() { }
+  constructor() {
+    console.log(this.listaInstitucionProcedencia);
+   }
   agregarInstitucionProcedencia(institucionProcedencia: InstitucionProcedenciaModel){
     this.listaInstitucionProcedencia.push(institucionProcedencia);
   }
@@ -31,7 +34,7 @@ export class InstitucionProcedenciaService {
   obtenerInstitucionProcedencia(idInstitucionProcedencia: string){
     
   }
-  obtenerInstitucionesDeProcedencia(){
-    return this.listaInstitucionProcedencia;
+  obtenerInstitucionesDeProcedencia(): Observable<InstitucionProcedenciaModel[]>{
+    return of(this.listaInstitucionProcedencia);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2'
 import { InstitucionProcedenciaModel } from '../../../../models/institucion-procedencia.model';
@@ -9,8 +9,10 @@ import { InstitucionProcedenciaModel } from '../../../../models/institucion-proc
   styleUrl: './lista.component.css'
 })
 export class ListaComponent {
-  listaInstitucionProcedencia: InstitucionProcedenciaModel[] = [];
+  @Input() listaInstitucionProcedencia: InstitucionProcedenciaModel[] = [];
   constructor( ) {
+    console.log('esto es lias');
+    console.log(this.listaInstitucionProcedencia);
 
   }
 

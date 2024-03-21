@@ -45,7 +45,7 @@
 
     </div>
     <mat-divider></mat-divider>
-    <div class="lista-institucion-procedencia">
-        <app-lista></app-lista>
+    <div *ngIf="listaCargada" class="lista-institucion-procedencia">
+        <app-lista [listaInstitucionProcedencia]="listaDeInstitucionesDeProcedencia" ></app-lista>
     </div>
 </div>
