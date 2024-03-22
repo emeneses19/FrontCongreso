@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let institucionProcedencia of listaDeInstitucionesDeProcedencia">
             <td>
                 <button (click)="eliminarInstitucionProcedencia()" matTooltip="Eliminar" mat-icon-button color="warn"
                     aria-label="delete">
@@ -22,151 +22,9 @@
                     <mat-icon>edit</mat-icon>
                 </button>
             </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
+            <td>{{institucionProcedencia.codProcedencia}}</td>
+            <td> {{institucionProcedencia.nombre}}</td>
         </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
-        <tr>
-            <td>
-                <button matTooltip="Eliminar" [matTooltipPosition]="'above'" mat-icon-button color="warn"
-                    aria-label="Example icon button with a home icon">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-            <td>01</td>
-            <td> Universidad Santo Tomás</td>
-        </tr>
+ 
     </tbody>
 </table>

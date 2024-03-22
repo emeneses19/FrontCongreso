@@ -13,13 +13,13 @@ export class InstitucionProcedenciaComponent {
   institucionProcedencia: InstitucionProcedenciaModel = new InstitucionProcedenciaModel();
   textoError: string = 'texto error';
   error: boolean = false ;
-  listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] =[];
-  listaCargada: boolean = false;
+  listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] =[ ];
 
 
   nombre = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
   constructor(private _institucionProcedenciaService: InstitucionProcedenciaService) {
+    console.log(this.listaDeInstitucionesDeProcedencia);
   }
   ngOnInit(): void {
     this.generarIdParaInstProcedencia();
@@ -56,7 +56,6 @@ export class InstitucionProcedenciaComponent {
      this._institucionProcedenciaService.obtenerInstitucionesDeProcedencia().subscribe(data =>{
       this.listaDeInstitucionesDeProcedencia = data
     });
-    this.listaCargada = true;
     console.log('obteniendo desde padre');
     console.log(this.listaDeInstitucionesDeProcedencia);
   }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2'
 import { InstitucionProcedenciaModel } from '../../../../models/institucion-procedencia.model';
@@ -8,12 +8,12 @@ import { InstitucionProcedenciaModel } from '../../../../models/institucion-proc
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.css'
 })
-export class ListaComponent {
-  @Input() listaInstitucionProcedencia: InstitucionProcedenciaModel[] = [];
+export class ListaComponent implements OnChanges {
+  @Input() listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] = [ ];
   constructor( ) {
-    console.log('esto es lias');
-    console.log(this.listaInstitucionProcedencia);
-
+  }
+  ngOnChanges(): void {
+      console.log('Lista de Instituciones en el componente hijo:', this.listaDeInstitucionesDeProcedencia);
   }
 
   eliminarInstitucionProcedencia() {
