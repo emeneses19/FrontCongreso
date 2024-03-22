@@ -15,15 +15,24 @@ export class InstitucionProcedenciaComponent {
   error: boolean = false ;
   listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] =[ ];
 
-
-  nombre = new FormControl('', [Validators.required, Validators.minLength(5)]);
-
   constructor(private _institucionProcedenciaService: InstitucionProcedenciaService) {
-    console.log(this.listaDeInstitucionesDeProcedencia);
   }
   ngOnInit(): void {
     this.generarIdParaInstProcedencia();
     this.obtenerInstitucionesDeProcedencia();
+  }
+  actualizarInstitucionProcedencia(instucion: InstitucionProcedenciaModel) {
+    // Agregar lógica para actualizar una institución procedencia existente
+    this._institucionProcedenciaService.actualizarInstitucionProcedencia(instucion);
+    // this._institucionProcedenciaService.actualizarInstitucionProcedencia(this.institucionProcedencia);
+    Swal.fire({
+      text: `El registro se ha actualizado exitosamente.`,
+      icon: 'success',
+      width: 400,
+      confirmButtonColor: "#1772b8",
+    });
+    this.institucionProcedencia = new InstitucionProcedenciaModel();
+    this.generarIdParaInstProcedencia();
   }
 
   guardar(form: NgForm) {
@@ -41,7 +50,6 @@ export class InstitucionProcedenciaComponent {
         width: 400,
         confirmButtonColor: "#1772b8",
       });
-      console.log(this._institucionProcedenciaService.listaInstitucionProcedencia);
       this.institucionProcedencia = new InstitucionProcedenciaModel();
       this.generarIdParaInstProcedencia();
     }
@@ -56,8 +64,21 @@ export class InstitucionProcedenciaComponent {
      this._institucionProcedenciaService.obtenerInstitucionesDeProcedencia().subscribe(data =>{
       this.listaDeInstitucionesDeProcedencia = data
     });
-    console.log('obteniendo desde padre');
-    console.log(this.listaDeInstitucionesDeProcedencia);
+  }
+
+  eliminarInstitucionDeProcedencia(institucionProcedencia: InstitucionProcedenciaModel){
+    Swal.fire({
+      title:'Aviso',
+      text: `Esta seguro de eliminar el registro? `,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: "#1772b8",
+      width: 400,
+    }).then(resp =>{
+      if(resp.value){
+        this._institucionProcedenciaService.eliminarInstitucionProcedencia(institucionProcedencia);
+      }
+    })
   }
   
 }

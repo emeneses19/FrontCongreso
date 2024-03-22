@@ -1,7 +1,8 @@
-<div class="no-datos" >
+
+<div class="no-datos"  *ngIf="listaDeInstitucionesDeProcedencia.length <=0">
     <span>¡No hay datos!</span>
 </div>
-<table class="table">
+<table *ngIf="listaDeInstitucionesDeProcedencia.length>0" class="table">
 
     <thead>
         <tr>
@@ -14,11 +15,11 @@
     <tbody>
         <tr *ngFor="let institucionProcedencia of listaDeInstitucionesDeProcedencia">
             <td>
-                <button (click)="eliminarInstitucionProcedencia()" matTooltip="Eliminar" mat-icon-button color="warn"
+                <button (click)="eliminarInstitucionProcedencia(institucionProcedencia)" matTooltip="Eliminar" mat-icon-button color="warn"
                     aria-label="delete">
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button matTooltip="Editar" mat-icon-button style="color: var( --color-primario);" aria-label="edit">
+                <button (click)="institucionProcedenciaActualizar.emit(institucionProcedencia)" matTooltip="Editar" mat-icon-button style="color: var( --color-primario);" aria-label="edit">
                     <mat-icon>edit</mat-icon>
                 </button>
             </td>

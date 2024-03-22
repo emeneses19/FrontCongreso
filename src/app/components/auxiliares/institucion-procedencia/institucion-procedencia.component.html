@@ -45,7 +45,10 @@
 
     </div>
     <mat-divider></mat-divider>
-    <div *ngIf="listaDeInstitucionesDeProcedencia.length >0"  class="lista-institucion-procedencia">
-        <app-lista [listaDeInstitucionesDeProcedencia]="listaDeInstitucionesDeProcedencia"  ></app-lista>
+    <div  class="lista-institucion-procedencia">
+        <app-lista [listaDeInstitucionesDeProcedencia]="listaDeInstitucionesDeProcedencia" 
+                    (institucionProcedenciaEliminar)="eliminarInstitucionDeProcedencia($event)"
+                    
+        ></app-lista>
     </div>
 </div>

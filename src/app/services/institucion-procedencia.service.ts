@@ -14,7 +14,6 @@ export class InstitucionProcedenciaService {
   ];
 
   constructor() {
-    console.log(this.listaInstitucionProcedencia);
    }
   agregarInstitucionProcedencia(institucionProcedencia: InstitucionProcedenciaModel){
     this.listaInstitucionProcedencia.push(institucionProcedencia);
