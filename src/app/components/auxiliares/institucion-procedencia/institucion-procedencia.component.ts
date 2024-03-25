@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { InstitucionProcedenciaModel } from '../../../models/institucion-procedencia.model';
 import { InstitucionProcedenciaService } from '../../../services/institucion-procedencia.service';
@@ -9,17 +9,26 @@ import Swal from 'sweetalert2';
   templateUrl: './institucion-procedencia.component.html',
   styleUrl: './institucion-procedencia.component.css'
 })
-export class InstitucionProcedenciaComponent {
+export class InstitucionProcedenciaComponent implements OnChanges {
   institucionProcedencia: InstitucionProcedenciaModel = new InstitucionProcedenciaModel();
   textoError: string = 'texto error';
   error: boolean = false ;
   listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] =[ ];
+  instituionProcedenciaActualizar: InstitucionProcedenciaModel = new InstitucionProcedenciaModel();
 
   constructor(private _institucionProcedenciaService: InstitucionProcedenciaService) {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(`el producto recibido ${this.instituionProcedenciaActualizar}`)
   }
   ngOnInit(): void {
     this.generarIdParaInstProcedencia();
     this.obtenerInstitucionesDeProcedencia();
+  }
+
+  recibiendoInstProcedencia(instProcedencia: InstitucionProcedenciaModel){
+    this.instituionProcedenciaActualizar = instProcedencia;
+    this.institucionProcedencia = this.instituionProcedenciaActualizar;
   }
   actualizarInstitucionProcedencia(instucion: InstitucionProcedenciaModel) {
     // Agregar lógica para actualizar una institución procedencia existente
@@ -34,6 +43,7 @@ export class InstitucionProcedenciaComponent {
     this.institucionProcedencia = new InstitucionProcedenciaModel();
     this.generarIdParaInstProcedencia();
   }
+ 
 
   guardar(form: NgForm) {
     console.log(form);
