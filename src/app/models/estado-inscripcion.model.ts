@@ -1,8 +1,11 @@
 export class EstadoInscripcionModel {
-    codIsncripcion: string;
+    codInscripcion: string;
     descripcion: string;
     constructor() {
-        this.codIsncripcion = '';
+        this.codInscripcion = '';
         this.descripcion = '';
     }
+
 }
+
+

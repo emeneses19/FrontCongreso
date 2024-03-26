@@ -1,30 +1,42 @@
-<div class="agregar-institucion-procedencia">
-    <div class="cabezera-formulario">
-        <h2 mat-dialog-title>Agregar Institucion Procedencia</h2>
-        <span class="material-icons">
-            <a href="" class="close">
-                close
-            </a>
-        </span>
-    </div>
-    <div class="formulario-institucion-procedencia">
-        <mat-dialog-content>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Cargando...</p>
+</ngx-spinner>
 
+<div class="agregar-estado-inscripcion">
+    
+    <div class="cabezera-formulario">
+        <h2 mat-dialog-title>Agregar Estado Inscripción</h2>
+        <mat-dialog-actions>
+            <mat-icon mat-button mat-dialog-close aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+        </mat-dialog-actions>
+    </div>
+    <div class="formulario-estado-inscripcion">
+        <mat-dialog-content>
+            @if (error) {
+            <div class="mensaje-error">
+                <span>{{textoError}}</span>
+            </div>
+            }
             <form class="form" #formulario="ngForm">
                 <mat-form-field appearance="outline">
                     <mat-label>Código</mat-label>
-                    <input [(ngModel)]="estadoInscripcion.codIsncripcion" name="codProcedencia" matInput
-                        required="required" #codProcedencia="ngModel">
-                    <mat-error *ngIf="codProcedencia.invalid && (codProcedencia.dirty || codProcedencia.touched)">
+                    <input [(ngModel)]="estadoInscripcion.codInscripcion" name="codInscripcion" matInput
+                        required="required" #codInscripcion="ngModel">
+                    <mat-error *ngIf="codInscripcion.invalid && (codInscripcion.dirty || codInscripcion.touched)">
                         <ng-container>Campo es
                             <strong>obligatorio</strong>
                         </ng-container>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Nombre</mat-label>
-                    <input class="campo-no-valido" [(ngModel)]="estadoInscripcion.descripcion" name="descripcion" matInput
-                        required minlength="4" #descripcion="ngModel">
+                    <mat-label>Descripción</mat-label>
+                    <input class="campo-no-valido" [(ngModel)]="estadoInscripcion.descripcion" name="descripcion"
+                        matInput required minlength="4" #descripcion="ngModel">
                     <mat-error *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
                         <ng-container *ngIf="descripcion.errors?.['required']">Campo es
                             <strong>obligatorio</strong>
@@ -42,9 +54,36 @@
         </mat-dialog-content>
 
     </div>
-    <div class="lista-institucion-procedencia">
-        
+    <mat-divider></mat-divider>
+    <div class="lista-estado-inscripcion">
+        <div class="no-datos" *ngIf="listaEstadoInscripcion.length <=0">
+            <span>¡No hay datos!</span>
+        </div>
+       
+
+        <div class="listapersona">
+            <h4>Lista Personas</h4>
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput  (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input autocomplete="off">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+                <ng-container matColumnDef="codigo">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> CODIGO </th>
+                  <td mat-cell *matCellDef="let element"> {{estadoInscripcion.codInscripcion}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="descripcion">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIPCIÓN </th>
+                  <td mat-cell *matCellDef="let element"> {{estadoInscripcion.descripcion}} </td>
+                </ng-container>
+                            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+          
+          </div>
+
     </div>
 </div>
-
-

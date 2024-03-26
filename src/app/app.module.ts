@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +35,8 @@ import { ListaComponent } from './components/auxiliares/institucion-procedencia/
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
   providers: [
     provideAnimationsAsync()
