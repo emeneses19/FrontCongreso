@@ -80,10 +80,6 @@ export class EstadoInscripcionComponent implements OnChanges {
       this.textoError ='Formulario incorrecto. Por favor, revíselo.';
       return;
     }else{
-      this.spinner.show();
-      setTimeout(()=>{
-        this.spinner.hide();
-      },5000)
       
       this.error = false;
       this._estadoInscripcionService.agregarEstadoInscripcion(this.estadoInscripcion);
