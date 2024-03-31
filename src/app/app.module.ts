@@ -17,6 +17,7 @@ import { CongresoComponent } from './components/auxiliares/congreso/congreso.com
 import { MaterialModule } from './shared/modules/material.module';
 import { InstitucionProcedenciaComponent } from './components/auxiliares/institucion-procedencia/institucion-procedencia.component';
 import { ListaComponent } from './components/auxiliares/institucion-procedencia/lista/lista.component';
+import { LugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lugar-procedencia.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ListaComponent } from './components/auxiliares/institucion-procedencia/
     CongresoComponent,
     InstitucionProcedenciaComponent,
     ListaComponent,
+    LugarProcedenciaComponent,
   ],
   imports: [
     BrowserModule,
