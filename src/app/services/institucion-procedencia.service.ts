@@ -12,6 +12,7 @@ export class InstitucionProcedenciaService {
       nombre: 'UTP',
     }
   ];
+  
 
   constructor() {
    }
@@ -35,5 +36,23 @@ export class InstitucionProcedenciaService {
   }
   obtenerInstitucionesDeProcedencia(): Observable<InstitucionProcedenciaModel[]>{
     return of(this.listaInstitucionProcedencia);
+  }
+  filtroInstitucionProcedenciaCodigo(codigoIngresado: string): Observable<InstitucionProcedenciaModel[]> {
+    const listaFiltrada = this.listaInstitucionProcedencia.filter(inst => inst.codProcedencia.includes(codigoIngresado));
+    if (listaFiltrada.length > 0) {
+      return of(listaFiltrada);
+    } else {
+      return of([]);
+    }
+  }
+  filtroInstitucionProcedenciaNombre(nombreIngresado: string): Observable<InstitucionProcedenciaModel[]>{
+    const nombreIngresadoMinusculas = nombreIngresado.toLowerCase();
+    const listaFiltrada = this.listaInstitucionProcedencia.filter(inst => inst.nombre.toLowerCase().includes(nombreIngresadoMinusculas));
+    if(listaFiltrada.length>0){
+      return of(listaFiltrada);
+    }else{
+      return of([]);
+    }
+
   }
 }

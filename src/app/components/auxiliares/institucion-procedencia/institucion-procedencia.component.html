@@ -12,10 +12,10 @@
                 <span>{{textoError}}</span>
             </div>
             }
-            <form class="form" #formulario="ngForm">
+            <form class="form" #formulario="ngForm" *ngIf="!cargando">
                 <mat-form-field appearance="outline">
                     <mat-label>Código</mat-label>
-                    <input [(ngModel)]="institucionProcedencia.codProcedencia" name="codProcedencia" matInput
+                    <input (input)="filtroInstitucionesDeProcedenciaPorCodigo()" [(ngModel)]="institucionProcedencia.codProcedencia" name="codProcedencia" matInput
                         required="required" #codProcedencia="ngModel">
                     <mat-error *ngIf="codProcedencia.invalid && (codProcedencia.dirty || codProcedencia.touched)">
                         <ng-container>Campo es
@@ -25,7 +25,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
-                    <input class="campo-no-valido" [(ngModel)]="institucionProcedencia.nombre" name="nombre" matInput
+                    <input (input)="filtroInstitucionesDeProcedenciaPorNombre()" class="campo-no-valido" [(ngModel)]="institucionProcedencia.nombre" name="nombre" matInput
                         required minlength="4" #nombre="ngModel">
                     <mat-error *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
                         <ng-container *ngIf="nombre.errors?.['required']">Campo es
@@ -40,9 +40,15 @@
                 <mat-dialog-actions align="end">
                     <button class="btn-guardar" type="submit" mat-button (click)="guardar(formulario)">Guardar</button>
                 </mat-dialog-actions>
+
             </form>
+
         </mat-dialog-content>
 
+    </div>
+    <div *ngIf="cargando" class="formulario-institucion-procedencia cargando" >
+        <img src="../../../../assets/img/cargando2.gif" alt="cargando">
+        <span>Cargando</span>
     </div>
     <mat-divider></mat-divider>
     <div  class="lista-institucion-procedencia">
