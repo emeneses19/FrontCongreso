@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -26,7 +29,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatInputModule,
         MatIconModule,
         MatTooltipModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatPaginator,
+        MatPaginatorModule,
+        MatSortModule
 
 
     ],
@@ -40,7 +46,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatCardModule,
         MatDividerModule,
         MatTooltipModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatPaginator,
+        MatPaginatorModule,
+        MatSortModule
     ]
 })
 export class MaterialModule { }
