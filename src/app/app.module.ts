@@ -29,7 +29,7 @@ import { LugarProcedenciaComponent } from './components/auxiliares/lugar-procede
     CongresoComponent,
     InstitucionProcedenciaComponent,
     ListaComponent,
-    LugarProcedenciaComponent,
+    LugarProcedenciaComponent
   ],
   imports: [
     BrowserModule,

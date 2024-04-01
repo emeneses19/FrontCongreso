@@ -1,8 +1,9 @@
-.agregar-estado-inscripcion{
+.agregar-estado-inscripcion {
   width: 550px;
   padding: 0 1.2rem;
 }
-.cabezera-formulario {
+
+.cabezera-estado-inscripcion {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,35 +11,13 @@
           color: var(--color-primario);
       }
 }
-.formulario-estado-inscripcion{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-mat-dialog-content .mensaje-error{
-  text-align: center;    
-  margin-bottom: 0.6rem;
-  margin-top: 0px;
-  span{
-      background-color: #f3dedf;
-      color: #f44336;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: bold; 
-  }  
-}
+
+
 .formulario-estado-inscripcion mat-dialog-content form{
   display: flex;
   flex-direction: column;
 }
-mat-form-field {
-  width: 100%;
-}
-mat-dialog-actions{
-  margin: 0;
-  padding: 0;
-}
+
 
 mat-dialog-actions .btn-guardar {
   background-color: var(--color-primario);
@@ -46,42 +25,7 @@ mat-dialog-actions .btn-guardar {
   width: 156px;
 }
 
-/* estilos de la lista */
-.lista-estado-inscripcion {
-  max-height: 200px;
-  overflow-y: auto;
-  margin: 0.5rem;
-}
-
-
-
-
-
-
-table {
+.mat-mdc-form-field {
+  font-size: 14px;
   width: 100%;
-  margin-top: 10px;
 }
-
-table th,
-table td {
-  padding: 8px;
-  text-align: left;
-  vertical-align: middle;
-}
-
-table th {
-  background-color: var(--color-secundario);
-  height: 3rem;
-}
-/* cuando no hay datos */
-.no-datos {
-  padding: 1rem; 
-  border: 1px solid #f8bb86;
-  border-radius: 5px; 
-  text-align: center; 
-  background-color: var(--color-secundario); 
-  font-weight: bold; 
-}
-
-

@@ -1,125 +1,98 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { EstadoInscripcionModel } from '../../../models/estado-inscripcion.model';
 import { EstadoInscripcionService } from '../../../services/estado-inscripcion.service';
-import Swal from 'sweetalert2';
 import { MatTableDataSource } from '@angular/material/table';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-estado-inscripcion',
   templateUrl: './estado-inscripcion.component.html',
   styleUrl: './estado-inscripcion.component.css'
 })
-export class EstadoInscripcionComponent implements OnChanges {
+export class EstadoInscripcionComponent implements OnInit {
 
-  listaPersonas:EstadoInscripcionModel[] = [
-    
-  ];
-  
+  listaEstadoInscripcion: EstadoInscripcionModel[]=[];
 
-  displayedColumns: string[] = ['codigo', 'descripcion'];
-  dataSource = new MatTableDataSource<EstadoInscripcionModel>() ;
 
-  estadoInscripcion: EstadoInscripcionModel = new EstadoInscripcionModel();
-  textoError: string = 'texto error';
-  error: boolean = false ;
-  listaEstadoInscripcion: EstadoInscripcionModel[] =[ ];
-  estadoInscripcionActualizar: EstadoInscripcionModel = new EstadoInscripcionModel();
-  datosFiltro = new MatTableDataSource(filtroEstadoInscripcion)
+  displayedColumns: string[] = ['acciones', 'codigo', 'descripcion'];
+  dataSource!:MatTableDataSource<any>;
 
-  constructor(private _estadoInscripcionService: EstadoInscripcionService,
-              private spinner: NgxSpinnerService
-    ) {
+  formInscripcion: FormGroup;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+
+  constructor(private formBuil: FormBuilder,
+              private _inscripcionService: EstadoInscripcionService,
+              private _snackBar: MatSnackBar
+              ) {
+    this.formInscripcion = this.formBuil.group({
+      codigo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+    })
+  }
+
+  ngOnInit(): void {
+    this.obtenerEstadoInscripcion();
+  }
+
+  obtenerEstadoInscripcion(){
+    this.listaEstadoInscripcion=this._inscripcionService.obtenerInscripcion();
+    this.dataSource=new MatTableDataSource(this.listaEstadoInscripcion)
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(`el producto recibido ${this.estadoInscripcionActualizar}`)
-  }
-  ngOnInit(): void {
-    this.generarIdEstadoInscripcion();
-    this.obtenerEstadoInscripcion();
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-  aplicarFiltro(event: Event){
-    const valorFiltro = (event.target as HTMLInputElement).value;
-    this.datosFiltro.filter = valorFiltro.trim().toLocaleLowerCase();
-  }
 
-  recibiendoEstInscripcion(estInscripcion: EstadoInscripcionModel){
-    this.estadoInscripcionActualizar = estInscripcion;
-    this.estadoInscripcion = this.estadoInscripcionActualizar;
-  }
-  actualizarEstadoInscripcion(inscripcion: EstadoInscripcionModel) {
+  agregarEstadoInscripcion() {
+    //console.log(this.formInscripcion);
 
-    this._estadoInscripcionService.actualizarEstadoInscripcion(inscripcion);
-
-    Swal.fire({
-      text: `El registro se ha actualizado exitosamente.`,
-      icon: 'success',
-      width: 400,
-      confirmButtonColor: "#1772b8",
-    });
-    this.estadoInscripcion = new EstadoInscripcionModel();
-    this.generarIdEstadoInscripcion();
-  }
- 
-  guardar(form: NgForm) {
-    console.log(form);
-    if(form.invalid){
-      this.error = true;
-      this.textoError ='Formulario incorrecto. Por favor, revíselo.';
-      return;
+    if(this.formInscripcion.invalid){
+      this._snackBar.open('Rellene los campos requeridos', '',{
+        duration: 4000,
+        horizontalPosition:'center',
+        verticalPosition:'top'
+      })
     }else{
-      
-      this.error = false;
-      this._estadoInscripcionService.agregarEstadoInscripcion(this.estadoInscripcion);
-      Swal.fire({
-        text: `El registro se ha guardado exitosamente.`,
-        icon: 'success',
-        width: 400,
-        confirmButtonColor: "#1772b8",
-      });
-      this.estadoInscripcion = new EstadoInscripcionModel();
-      this.generarIdEstadoInscripcion();
-
-    }
-  }
-
-  generarIdEstadoInscripcion() {
-    const timestamp = new Date().getTime().toString();
-    this.estadoInscripcion = new EstadoInscripcionModel();
-    this.estadoInscripcion.codInscripcion = timestamp;
-  }
-  obtenerEstadoInscripcion(){
-     this._estadoInscripcionService.obtenerEstadoInscripcion().subscribe(data =>{
-      this.listaEstadoInscripcion = data
-    });
-  }
-
-  eliminarEstadoInscripcion(estadoInscripcion: EstadoInscripcionModel){
-    Swal.fire({
-      title:'Aviso',
-      text: `Esta seguro de eliminar el registro? `,
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      confirmButtonColor: "#1772b8",
-      width: 400,
-    }).then(resp =>{
-      if(resp.value){
-        this._estadoInscripcionService.eliminarEstadoInscripcion(estadoInscripcion);
+      const inscripcion: EstadoInscripcionModel = {
+        codInscripcion: this.formInscripcion.value.codigo,
+        descripcion: this.formInscripcion.value.descripcion,
       }
+      console.log(inscripcion);
+      this._inscripcionService.agregarInscripcion(inscripcion);
+      this._snackBar.open('se agrego correctamente el usuario', '',{
+        duration: 3000,
+        horizontalPosition:'center',
+        verticalPosition:'top'
+      })
+    }
+    
+
+  }
+
+  eliminarInscripcion(index:number){
+    console.log(index);
+    this._inscripcionService.eliminarInscripcion(index);
+    this.obtenerEstadoInscripcion();
+
+    this._snackBar.open('se elimino el registro con éxito', '',{
+      duration: 3000,
+      horizontalPosition:'center',
+      verticalPosition:'top'
     })
   }
+
 }
 
-const filtroEstadoInscripcion:EstadoInscripcionModel[]=[];

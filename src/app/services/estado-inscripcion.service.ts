@@ -7,31 +7,27 @@ import { Observable, of } from 'rxjs';
 })
 export class EstadoInscripcionService {
 
-  listaEstadoInscripcion: EstadoInscripcionModel[] = [
-    {
-      codInscripcion: '123456',
-      descripcion: 'ACTIVO',
-    }
+  listaInscripcion: EstadoInscripcionModel[] = [
+    { codInscripcion: '111', descripcion: '1ALUMNO' },
+    { codInscripcion: '', descripcion: '2docente' },
+    { codInscripcion: '', descripcion: '3docente' },
+    { codInscripcion: '', descripcion: '6docente' },
+    { codInscripcion: '', descripcion: '4docente' },
+    { codInscripcion: '', descripcion: '3docente' },
+    { codInscripcion: '', descripcion: '2docente' },
   ];
 
   constructor() { }
 
-  agregarEstadoInscripcion(institucionProcedencia: EstadoInscripcionModel){
-    this.listaEstadoInscripcion.push(institucionProcedencia);
+  obtenerInscripcion(){
+    return this.listaInscripcion.slice();
   }
-  eliminarEstadoInscripcion(institucionProcedencia: EstadoInscripcionModel){
-    const index = this.listaEstadoInscripcion.findIndex(item => item === institucionProcedencia);
-    if (index !== -1) {
-      this.listaEstadoInscripcion.splice(index, 1);
-    }
+
+  eliminarInscripcion(id: number){
+    this.listaInscripcion.splice(id,1);
   }
-  actualizarEstadoInscripcion(institucionProcedenciaActualizado: EstadoInscripcionModel){
-    const index = this.listaEstadoInscripcion.findIndex(item => item.codInscripcion === institucionProcedenciaActualizado.codInscripcion);
-    if (index !== -1) {
-      this.listaEstadoInscripcion[index] = institucionProcedenciaActualizado;
-    }
-  }
-  obtenerEstadoInscripcion(): Observable<EstadoInscripcionModel[]>{
-    return of(this.listaEstadoInscripcion);
+
+  agregarInscripcion(inscripcion: EstadoInscripcionModel){
+    this.listaInscripcion.push(inscripcion);
   }
 }
