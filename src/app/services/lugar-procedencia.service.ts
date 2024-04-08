@@ -13,29 +13,26 @@ export class LugarProcedenciaService {
       nombre: 'Jinin-Huancayo-El Tambo',
     }
   ];
-  
+
   constructor() { }
 
-  agregarLugarProcedencia(lugarProcedencia: LugarProcedenciaModel){
+  agregarLugarProcedencia(lugarProcedencia: LugarProcedenciaModel) {
     this.listaLugarProcedencia.push(lugarProcedencia);
   }
-  eliminarLugarProcedencia(lugarProcedencia: LugarProcedenciaModel){
+  eliminarLugarProcedencia(lugarProcedencia: LugarProcedenciaModel) {
     const index = this.listaLugarProcedencia.findIndex(item => item === lugarProcedencia);
     if (index !== -1) {
       this.listaLugarProcedencia.splice(index, 1);
     }
   }
-  actualizarLugarProcedencia(lugarProcedenciaActualizado: LugarProcedenciaModel){
+  actualizarLugarProcedencia(lugarProcedenciaActualizado: LugarProcedenciaModel) {
     const index = this.listaLugarProcedencia.findIndex(item => item.codigoLugarProcedencia === lugarProcedenciaActualizado.codigoLugarProcedencia);
     if (index !== -1) {
       this.listaLugarProcedencia[index] = lugarProcedenciaActualizado;
     }
   }
 
-  obtenerLugarProcedencia(idLugarProcedencia: string){
-    
-  }
-  obtenerLugaresDeProcedencia(): Observable<LugarProcedenciaModel[]>{
+  obtenerLugaresDeProcedencia(): Observable<LugarProcedenciaModel[]> {
     return of(this.listaLugarProcedencia);
   }
   filtroLugarProcedenciaCodigo(codigoIngresado: string): Observable<LugarProcedenciaModel[]> {
@@ -46,12 +43,12 @@ export class LugarProcedenciaService {
       return of([]);
     }
   }
-  filtroLugarProcedenciaNombre(nombreIngresado: string): Observable<LugarProcedenciaModel[]>{
+  filtroLugarProcedenciaNombre(nombreIngresado: string): Observable<LugarProcedenciaModel[]> {
     const nombreIngresadoMinusculas = nombreIngresado.toLowerCase();
     const listaFiltrada = this.listaLugarProcedencia.filter(lugar => lugar.nombre.toLowerCase().includes(nombreIngresadoMinusculas));
-    if(listaFiltrada.length>0){
+    if (listaFiltrada.length > 0) {
       return of(listaFiltrada);
-    }else{
+    } else {
       return of([]);
     }
 

@@ -26,17 +26,17 @@ export class InstitucionProcedenciaComponent implements OnChanges {
     this.obtenerInstitucionesDeProcedencia();
   }
 
-  filtroInstitucionesDeProcedenciaPorCodigo(){
+  filtroInstitucionesDeProcedenciaPorCodigo() {
     this.cargando = true;
-    this._institucionProcedenciaService.filtroInstitucionProcedenciaCodigo(this.institucionProcedencia.codProcedencia).subscribe(result =>{
+    this._institucionProcedenciaService.filtroInstitucionProcedenciaCodigo(this.institucionProcedencia.codProcedencia).subscribe(result => {
       this.listaDeInstitucionesDeProcedencia = result;
       this.cargando = false;
     });
 
   }
-  filtroInstitucionesDeProcedenciaPorNombre(){
+  filtroInstitucionesDeProcedenciaPorNombre() {
     this.cargando = true;
-    this._institucionProcedenciaService.filtroInstitucionProcedenciaNombre(this.institucionProcedencia.nombre).subscribe(inst=>{
+    this._institucionProcedenciaService.filtroInstitucionProcedenciaNombre(this.institucionProcedencia.nombre).subscribe(inst => {
       this.listaDeInstitucionesDeProcedencia = inst;
       this.cargando = false;
     })
@@ -55,7 +55,7 @@ export class InstitucionProcedenciaComponent implements OnChanges {
       return;
     } else {
       const codigoExistente = this.listaDeInstitucionesDeProcedencia
-      .find(inst => inst.codProcedencia === this.institucionProcedencia.codProcedencia);
+        .find(inst => inst.codProcedencia === this.institucionProcedencia.codProcedencia);
 
       this.cargando = true; // Activar indicador de carga después de un retraso
       setTimeout(() => {
@@ -65,12 +65,12 @@ export class InstitucionProcedenciaComponent implements OnChanges {
           this.resetearFormulario();
           this.instituionProcedenciaActualizar = new InstitucionProcedenciaModel();
         } else {
-          if(codigoExistente){
+          if (codigoExistente) {
             this._institucionProcedenciaService.actualizarInstitucionProcedencia(this.institucionProcedencia);
             this.cargando = false;
             this.resetearFormulario();
-  
-          }else{            
+
+          } else {
             this.error = false;
             this._institucionProcedenciaService.agregarInstitucionProcedencia(this.institucionProcedencia);
             this.cargando = false;
@@ -80,7 +80,7 @@ export class InstitucionProcedenciaComponent implements OnChanges {
         }
       }, 1000); // Coloca el tiempo de retraso deseado aquí (en milisegundos)
 
- 
+
     }
   }
 
@@ -122,6 +122,7 @@ export class InstitucionProcedenciaComponent implements OnChanges {
     }).then(resp => {
       if (resp.value) {
         this._institucionProcedenciaService.eliminarInstitucionProcedencia(institucionProcedencia);
+        this.obtenerInstitucionesDeProcedencia();
       }
     })
   }

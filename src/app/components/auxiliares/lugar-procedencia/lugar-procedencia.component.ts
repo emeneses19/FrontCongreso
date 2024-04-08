@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LugarProcedenciaModel } from '../../../models/lugar-procedencia.models';
 
 @Component({
   selector: 'app-lugar-procedencia',
@@ -10,8 +11,10 @@ export class LugarProcedenciaComponent {
   error: boolean = false
   textoError: string = '';
   cargando: boolean = false;
-  
-  guardar(form: NgForm){
+  lugarProcedencia: LugarProcedenciaModel = new LugarProcedenciaModel();
+
+
+  guardar(form: NgForm) {
     console.log('form');
   }
 }
