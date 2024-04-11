@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-estado-inscripcion',
@@ -14,11 +15,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EstadoInscripcionComponent implements OnInit {
 
-  listaEstadoInscripcion: EstadoInscripcionModel[]=[];
+  listaEstadoInscripcion: EstadoInscripcionModel[] = [];
+  cargando: boolean = false;
 
 
   displayedColumns: string[] = ['acciones', 'codigo', 'descripcion'];
-  dataSource!:MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
 
   formInscripcion: FormGroup;
 
@@ -27,9 +29,10 @@ export class EstadoInscripcionComponent implements OnInit {
 
 
   constructor(private formBuil: FormBuilder,
-              private _inscripcionService: EstadoInscripcionService,
-              private _snackBar: MatSnackBar
-              ) {
+    private _inscripcionService: EstadoInscripcionService,
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog
+  ) {
     this.formInscripcion = this.formBuil.group({
       codigo: ['', Validators.required],
       descripcion: ['', Validators.required],
@@ -40,9 +43,9 @@ export class EstadoInscripcionComponent implements OnInit {
     this.obtenerEstadoInscripcion();
   }
 
-  obtenerEstadoInscripcion(){
-    this.listaEstadoInscripcion=this._inscripcionService.obtenerInscripcion();
-    this.dataSource=new MatTableDataSource(this.listaEstadoInscripcion)
+  obtenerEstadoInscripcion() {
+    this.listaEstadoInscripcion = this._inscripcionService.obtenerInscripcion();
+    this.dataSource = new MatTableDataSource(this.listaEstadoInscripcion)
   }
 
   applyFilter(event: Event) {
@@ -59,38 +62,44 @@ export class EstadoInscripcionComponent implements OnInit {
   agregarEstadoInscripcion() {
     //console.log(this.formInscripcion);
 
-    if(this.formInscripcion.invalid){
-      this._snackBar.open('Rellene los campos requeridos', '',{
+    if (this.formInscripcion.invalid) {
+      this._snackBar.open('Rellene los campos requeridos', '', {
         duration: 4000,
-        horizontalPosition:'center',
-        verticalPosition:'top'
+        horizontalPosition: 'center',
+        verticalPosition: 'top'
       })
-    }else{
-      const inscripcion: EstadoInscripcionModel = {
-        codInscripcion: this.formInscripcion.value.codigo,
-        descripcion: this.formInscripcion.value.descripcion,
-      }
-      console.log(inscripcion);
-      this._inscripcionService.agregarInscripcion(inscripcion);
-      this._snackBar.open('se agrego correctamente el usuario', '',{
-        duration: 3000,
-        horizontalPosition:'center',
-        verticalPosition:'top'
-      })
+    } else {
+
+      this.cargando = true;
+      setTimeout(() => {
+        const inscripcion: EstadoInscripcionModel = {
+          codInscripcion: this.formInscripcion.value.codigo,
+          descripcion: this.formInscripcion.value.descripcion,
+        }
+        this._inscripcionService.agregarInscripcion(inscripcion);
+        this._snackBar.open('se agrego correctamente el usuario', '', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top'
+        })
+        this.cargando = false;
+      }, 2000);
+      
+     
+      //console.log(inscripcion);
     }
-    
 
   }
 
-  eliminarInscripcion(index:number){
+  eliminarInscripcion(index: number) {
     console.log(index);
     this._inscripcionService.eliminarInscripcion(index);
     this.obtenerEstadoInscripcion();
 
-    this._snackBar.open('se elimino el registro con éxito', '',{
+    this._snackBar.open('se elimino el registro con éxito', '', {
       duration: 3000,
-      horizontalPosition:'center',
-      verticalPosition:'top'
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
     })
   }
 

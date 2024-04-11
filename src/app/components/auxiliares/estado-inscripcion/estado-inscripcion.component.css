@@ -29,3 +29,13 @@ mat-dialog-actions .btn-guardar {
   font-size: 14px;
   width: 100%;
 }
+
+img{
+  width: 50px;
+  height: 50px;
+}
+
+.cargando{
+  display: flex;
+  justify-content: center;
+}

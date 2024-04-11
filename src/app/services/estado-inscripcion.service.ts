@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EstadoInscripcionModel } from '../models/estado-inscripcion.model';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject, of, pipe, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

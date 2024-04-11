@@ -25,7 +25,11 @@
 
             </form>
         </mat-dialog-content>
+        <div class="cargando" *ngIf="cargando">
+            <img src="../../../../assets/img/cargando2.gif" alt="">
+        </div>
     </div>
+
     <div class="lista-estado-inscripcion">
         <div class="mat-elevation-z1" *ngIf="listaEstadoInscripcion.length>0">
             <table mat-table [dataSource]="dataSource" matSort>
