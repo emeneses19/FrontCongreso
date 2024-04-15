@@ -15,7 +15,8 @@
             <form class="form" #formulario="ngForm" *ngIf="!cargando">
                 <mat-form-field appearance="outline">
                     <mat-label>Código</mat-label>
-                    <input (input)="filtroLugarDeProcedenciaPorCodigo()" [(ngModel)]="lugarProcedencia.codigoLugarProcedencia" name="codigoLugarProcedencia" matInput
+                    <input (input)="filtroLugarDeProcedenciaPorCodigo()"
+                        [(ngModel)]="lugarProcedencia.codigoLugarProcedencia" name="codigoLugarProcedencia" matInput
                         required="required" #codigoLugarProcedencia="ngModel">
                     <mat-error
                         *ngIf="codigoLugarProcedencia.invalid && (codigoLugarProcedencia.dirty || codigoLugarProcedencia.touched)">
@@ -26,8 +27,9 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
-                    <input (input)="filtroLugarDeProcedenciaPorNombre()" class="campo-no-valido" [(ngModel)]="lugarProcedencia.nombre" name="nombre" matInput required
-                        minlength="4" #nombre="ngModel">
+                    <input (input)="filtroLugarDeProcedenciaPorNombre()" class="campo-no-valido"
+                        [(ngModel)]="lugarProcedencia.nombre" name="nombre" matInput required minlength="4"
+                        #nombre="ngModel">
                     <mat-error *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
                         <ng-container *ngIf="nombre.errors?.['required']">Campo es
                             <strong>obligatorio</strong>
@@ -50,6 +52,9 @@
     </div>
     <mat-divider></mat-divider>
     <div class="lugarProcedencia__block_lista">
-        <app-lista-lugar-procedencia></app-lista-lugar-procedencia>
+        <app-lista-lugar-procedencia [listaDeLugaresDeProcedencia]="listaDeLugaresDeProcedencia"
+            (lugarProcedenciaEliminar)="eliminarLugarDeProcedencia($event)"
+            (lugarProcedenciaActualizar)="recibiendoLugarDeProcedencia($event)">
+        </app-lista-lugar-procedencia>
     </div>
 </div>

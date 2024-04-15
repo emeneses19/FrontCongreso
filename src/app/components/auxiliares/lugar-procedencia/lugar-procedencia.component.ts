@@ -14,11 +14,11 @@ export class LugarProcedenciaComponent {
   textoError: string = '';
   cargando: boolean = false;
   lugarProcedencia: LugarProcedenciaModel = new LugarProcedenciaModel();
-  listaDeLugarDeProcedencia: LugarProcedenciaModel[] = [];
+  listaDeLugaresDeProcedencia: LugarProcedenciaModel[] = [];
   lugarProcedenciaActualizar: LugarProcedenciaModel = new LugarProcedenciaModel();
 
 
-  constructor(private _lugarProcedenciaService: LugarProcedenciaService){
+  constructor(private _lugarProcedenciaService: LugarProcedenciaService) {
 
   }
 
@@ -29,7 +29,7 @@ export class LugarProcedenciaComponent {
   filtroLugarDeProcedenciaPorCodigo() {
     this.cargando = true;
     this._lugarProcedenciaService.filtroLugarProcedenciaCodigo(this.lugarProcedencia.codigoLugarProcedencia).subscribe(result => {
-      this.listaDeLugarDeProcedencia = result;
+      this.listaDeLugaresDeProcedencia = result;
       this.cargando = false;
     });
 
@@ -37,13 +37,13 @@ export class LugarProcedenciaComponent {
   filtroLugarDeProcedenciaPorNombre() {
     this.cargando = true;
     this._lugarProcedenciaService.filtroLugarProcedenciaNombre(this.lugarProcedencia.nombre).subscribe(lugar => {
-      this.listaDeLugarDeProcedencia = lugar;
+      this.listaDeLugaresDeProcedencia = lugar;
       this.cargando = false;
     })
   }
 
   recibiendoLugarDeProcedencia(lugarProcedencia: LugarProcedenciaModel) {
-    this.lugarProcedencia = JSON.parse(JSON.stringify(lugarProcedencia));
+    this.lugarProcedenciaActualizar = JSON.parse(JSON.stringify(lugarProcedencia));
     this.lugarProcedencia = this.lugarProcedenciaActualizar;
   }
 
@@ -53,12 +53,12 @@ export class LugarProcedenciaComponent {
       this.textoError = 'Formulario incorrecto. Por favor, revíselo.';
       return;
     } else {
-      const codigoExistente = this.listaDeLugarDeProcedencia
+      const codigoExistente = this.listaDeLugaresDeProcedencia
         .find(lugar => lugar.codigoLugarProcedencia === this.lugarProcedencia.codigoLugarProcedencia);
 
       this.cargando = true; // Activar indicador de carga después de un retraso
       setTimeout(() => {
-        if (this.lugarProcedencia.codigoLugarProcedencia) {
+        if (this.lugarProcedenciaActualizar.codigoLugarProcedencia) {
           this._lugarProcedenciaService.actualizarLugarProcedencia(this.lugarProcedencia);
           this.cargando = false;
           this.resetearFormulario();
@@ -105,7 +105,7 @@ export class LugarProcedenciaComponent {
   obtenerLugaresDeProcedencia() {
     this.cargando = true;
     this._lugarProcedenciaService.obtenerLugaresDeProcedencia().subscribe(data => {
-      this.listaDeLugarDeProcedencia = data
+      this.listaDeLugaresDeProcedencia = data
     });
     this.cargando = false;
   }

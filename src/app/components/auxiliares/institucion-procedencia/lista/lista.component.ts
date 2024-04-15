@@ -9,16 +9,16 @@ import { InstitucionProcedenciaModel } from '../../../../models/institucion-proc
   styleUrl: './lista.component.css'
 })
 export class ListaComponent implements OnChanges {
-  @Input() listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] = [ ];
+  @Input() listaDeInstitucionesDeProcedencia: InstitucionProcedenciaModel[] = [];
   @Output() institucionProcedenciaEliminar = new EventEmitter();
   @Output() institucionProcedenciaActualizar = new EventEmitter();
-  constructor( ) {
+  constructor() {
   }
   ngOnChanges(): void {
   }
 
   eliminarInstitucionProcedencia(institucionProcedencia: InstitucionProcedenciaModel) {
-   this.institucionProcedenciaEliminar.emit(institucionProcedencia);
+    this.institucionProcedenciaEliminar.emit(institucionProcedencia);
   }
 
 }
