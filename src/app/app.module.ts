@@ -21,7 +21,7 @@ import { LugarProcedenciaComponent } from './components/auxiliares/lugar-procede
 import { ListaLugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lista-lugar-procedencia/lista-lugar-procedencia.component';
 import { EventoComponent } from './components/auxiliares/evento/evento.component';
 import { AgregarEventoComponent } from './components/auxiliares/evento/agregar-evento/agregar-evento.component';
-import { FormatoDeFechaPipe } from './shared/pipes/formato-de-fecha.pipe';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { FormatoDeFechaPipe } from './shared/pipes/formato-de-fecha.pipe';
     ListaLugarProcedenciaComponent,
     EventoComponent,
     AgregarEventoComponent,
-    FormatoDeFechaPipe
+    InicioComponent
   ],
   imports: [
     BrowserModule,

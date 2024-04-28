@@ -29,7 +29,4 @@ export class AuxiliaresComponent {
     this.dialog.open(LugarProcedenciaComponent);
 
   }
-  openEvento(){
-    this.dialog.open(EventoComponent);
-  }
 }

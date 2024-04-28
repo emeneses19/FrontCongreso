@@ -10,7 +10,7 @@ import { AgregarEventoComponent } from './agregar-evento/agregar-evento.componen
 export class EventoComponent {
   constructor(public dialog: MatDialog) {}
   openAgregarEvento(){
-this.dialog.open(AgregarEventoComponent);
+    this.dialog.open(AgregarEventoComponent);
   }
 
 }
