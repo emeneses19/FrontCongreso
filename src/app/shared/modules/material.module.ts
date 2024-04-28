@@ -15,7 +15,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+//para Data Picker
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -32,8 +35,9 @@ import { MatSortModule } from '@angular/material/sort';
         MatSnackBarModule,
         MatPaginator,
         MatPaginatorModule,
-        MatSortModule
-
+        MatSortModule,
+        MatDatepickerModule,
+        MatNativeDateModule
 
     ],
     exports: [
@@ -49,7 +53,12 @@ import { MatSortModule } from '@angular/material/sort';
         MatSnackBarModule,
         MatPaginator,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatDatepickerModule,
+        MatNativeDateModule
+    ],
+    providers:[
+        { provide: MAT_DATE_LOCALE, useValue: 'es-PE' }
     ]
 })
 export class MaterialModule { }

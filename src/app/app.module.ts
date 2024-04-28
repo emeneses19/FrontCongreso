@@ -19,6 +19,9 @@ import { InstitucionProcedenciaComponent } from './components/auxiliares/institu
 import { ListaComponent } from './components/auxiliares/institucion-procedencia/lista/lista.component';
 import { LugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lugar-procedencia.component';
 import { ListaLugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lista-lugar-procedencia/lista-lugar-procedencia.component';
+import { EventoComponent } from './components/auxiliares/evento/evento.component';
+import { AgregarEventoComponent } from './components/auxiliares/evento/agregar-evento/agregar-evento.component';
+import { FormatoDeFechaPipe } from './shared/pipes/formato-de-fecha.pipe';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ListaLugarProcedenciaComponent } from './components/auxiliares/lugar-pr
     InstitucionProcedenciaComponent,
     ListaComponent,
     LugarProcedenciaComponent,
-    ListaLugarProcedenciaComponent
+    ListaLugarProcedenciaComponent,
+    EventoComponent,
+    AgregarEventoComponent,
+    FormatoDeFechaPipe
   ],
   imports: [
     BrowserModule,

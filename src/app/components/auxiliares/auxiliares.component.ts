@@ -5,6 +5,7 @@ import { InstitucionProcedenciaComponent } from './institucion-procedencia/insti
 import { EstadoInscripcionComponent } from './estado-inscripcion/estado-inscripcion.component';
 import { MatCard } from '@angular/material/card';
 import { LugarProcedenciaComponent } from './lugar-procedencia/lugar-procedencia.component';
+import { EventoComponent } from './evento/evento.component';
 
 @Component({
   selector: 'app-auxiliares',
@@ -27,5 +28,8 @@ export class AuxiliaresComponent {
   openLugarDeProcedencia(){
     this.dialog.open(LugarProcedenciaComponent);
 
+  }
+  openEvento(){
+    this.dialog.open(EventoComponent);
   }
 }
