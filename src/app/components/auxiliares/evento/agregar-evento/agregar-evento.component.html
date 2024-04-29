@@ -3,7 +3,7 @@
         <h2 mat-dialog-title>Agregar Evento</h2>
         <h2 mat-dialog-title>Actualizar Evento</h2>
         <mat-dialog-actions>
-                <mat-icon mat-button mat-dialog-close aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+            <mat-icon mat-button mat-dialog-close aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
         </mat-dialog-actions>
     </div>
     <div class="formulario-evento">
@@ -11,74 +11,71 @@
             <div class="mensaje-error">
                 <span>texto error</span>
             </div>
-    
-            <form class="form" #formulario="ngForm" >
+            <form class="form" #formulario="ngForm">
                 <mat-form-field appearance="outline">
                     <mat-label>Código</mat-label>
-                    <input  name="codEvento" matInput
-                        required="required" >
-                    <mat-error >
+                    <input name="codEvento" matInput required="required">
+                    <mat-error>
                         <ng-container>Campo es
                             <strong>obligatorio</strong>
                         </ng-container>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Fecha</mat-label>
-                    <input  matInput [matDatepicker]="picker" >
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Tolerancia</mat-label>
-                    <input matInput [matDatepicker]="tolerancia" >
-                    <mat-hint>DD/MM/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="tolerancia"></mat-datepicker-toggle>
-                    <mat-datepicker #tolerancia></mat-datepicker>
-                </mat-form-field>
+                <mat-card>
+                    <mat-card-content>
+                        <label for="fecha">Fecha</label>
+                        <input type="datetime-local">
+                    </mat-card-content>
+                </mat-card>
+                <br>
+                <mat-card>
+                    <mat-card-content>
+                        <label for="tolerancia">Tolerancia</label>
+                        <input type="datetime-local">
+                    </mat-card-content>
+                </mat-card>
+                <br>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
-                    <input  class="campo-no-valido"  name="fecha" matInput
-                        required minlength="4" >
-                    <mat-error >
+                    <input class="campo-no-valido" name="fecha" matInput required minlength="4">
+                    <mat-error>
                         <ng-container>Campo es
                             <strong>obligatorio</strong>
                         </ng-container>
-                        <ng-container >
+                        <ng-container>
                             El nombre debe tener <strong>al menos 5 caracteres</strong>
                         </ng-container>
                     </mat-error>
 
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
                     <textarea matInput></textarea>
                 </mat-form-field>
-                <div>
-                    <input type="datetime-local">
-                </div>
-                <mat-form-field floatLabel="always">
+
+                <mat-form-field appearance="outline">
                     <mat-label>Duración</mat-label>
                     <input matInput type="number" class="example-right-align" placeholder="0">
                     <span matTextSuffix>minutos</span>
-                  </mat-form-field>
-                  <mat-form-field>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Congreso</mat-label>
                     <mat-select>
-                      <mat-option value="one">First option</mat-option>
-                      <mat-option value="two">Second option</mat-option>
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                </mat-form-field>
                 <mat-dialog-actions align="end">
-                    <button class="btn-guardar" type="submit" mat-button >Guardar</button>
+                    <button class="btn-guardar" type="submit" mat-button>Guardar</button>
                 </mat-dialog-actions>
+                <div>
 
+                </div>
             </form>
-
         </mat-dialog-content>
-
     </div>
-    <div  class="formulario-institucion-procedencia cargando" >
+    <div class="formulario-institucion-procedencia cargando">
         <img src="../../../../assets/img/cargando2.gif" alt="cargando">
         <span>Cargando</span>
     </div>
