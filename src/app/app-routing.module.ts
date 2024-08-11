@@ -9,7 +9,6 @@ const routes: Routes = [
   {path:'', redirectTo:'inicio', pathMatch:'full'},
   {path:'inicio', component: InicioComponent},
   {path:'auxiliares', component: AuxiliaresComponent},
-  {path:'auxiliares/lista-de-eventos', component:EventoComponent},
   {path:'**', redirectTo:'inicio', pathMatch:'full'}
 ];
 

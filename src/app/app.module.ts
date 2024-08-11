@@ -22,6 +22,7 @@ import { ListaLugarProcedenciaComponent } from './components/auxiliares/lugar-pr
 import { EventoComponent } from './components/auxiliares/evento/evento.component';
 import { AgregarEventoComponent } from './components/auxiliares/evento/agregar-evento/agregar-evento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ListaCongresoComponent } from './components/auxiliares/congreso/lista-congreso/lista-congreso.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     ListaLugarProcedenciaComponent,
     EventoComponent,
     AgregarEventoComponent,
-    InicioComponent
+    InicioComponent,
+    ListaCongresoComponent
   ],
   imports: [
     BrowserModule,

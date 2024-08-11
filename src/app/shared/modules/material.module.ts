@@ -17,11 +17,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-
+import {
+    MatSlideToggleModule
+  } from '@angular/material/slide-toggle';
 //para Data Picker
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-
+//para hora importante
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
     declarations: [],
@@ -41,6 +44,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
         MatDatepickerModule,
         MatNativeDateModule,
         MatSelectModule,
+        NgxMaterialTimepickerModule,
+        MatSlideToggleModule,
 
     ],
     exports: [
@@ -60,6 +65,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
         MatDatepickerModule,
         MatNativeDateModule,
         MatSelectModule,
+        NgxMaterialTimepickerModule,
+        MatSlideToggleModule
     ],
     providers: [
         { provide: MAT_DATE_LOCALE, useValue: 'es-PE' }
