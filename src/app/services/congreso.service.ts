@@ -12,8 +12,8 @@ export class CongresoService {
     codigoCongreso: '0111',
     nombre: 'Congreso 01',
     abierto: true,
-    fechaApertura: DateTime.now(),
-    fechaCierre: DateTime.now()
+    fechaApertura: new Date(),
+    fechaCierre: new Date()
   }
   ];
 

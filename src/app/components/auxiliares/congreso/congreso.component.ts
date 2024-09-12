@@ -14,11 +14,12 @@ export class CongresoComponent {
   textoError: string = '';
   cargando: boolean = false;
   congreso: CongresoModel = new CongresoModel();
-  listaDeCongreso: CongresoModel[] = [];
+  listaDeCongresos: CongresoModel[] = [];
   congresoActualizar: CongresoModel = new CongresoModel();
 
 
   constructor(private _congresoService: CongresoService) {
+    console.log(this.congreso.abierto);
 
   }
 
@@ -26,10 +27,11 @@ export class CongresoComponent {
     this.generarIdParaCongreso();
     this.obtenerCongreso();
   }
+
   filtroCongresoPorCodigo() {
     this.cargando = true;
     this._congresoService.filtroCongresoCodigo(this.congreso.codigoCongreso).subscribe(result => {
-      this.listaDeCongreso = result;
+      this.listaDeCongresos = result;
       this.cargando = false;
     });
 
@@ -37,7 +39,7 @@ export class CongresoComponent {
   filtroCongresoPorNombre() {
     this.cargando = true;
     this._congresoService.filtroCongresoNombre(this.congreso.nombre).subscribe(lugar => {
-      this.listaDeCongreso = lugar;
+      this.listaDeCongresos = lugar;
       this.cargando = false;
     })
   }
@@ -53,7 +55,7 @@ export class CongresoComponent {
       this.textoError = 'Formulario incorrecto. Por favor, revíselo.';
       return;
     } else {
-      const codigoExistente = this.listaDeCongreso
+      const codigoExistente = this.listaDeCongresos
         .find(congreso => congreso.codigoCongreso === this.congreso.codigoCongreso);
 
       this.cargando = true; // Activar indicador de carga después de un retraso
@@ -105,7 +107,7 @@ export class CongresoComponent {
   obtenerCongreso() {
     this.cargando = true;
     this._congresoService.obtenerCongreso().subscribe(data => {
-      this.listaDeCongreso = data
+      this.listaDeCongresos = data
     });
     this.cargando = false;
   }

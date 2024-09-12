@@ -35,24 +35,25 @@
                             El nombre debe tener <strong>al menos 5 caracteres</strong>
                         </ng-container>
                     </mat-error>
-
-                </mat-form-field>
-                <!-- <mat-form-field appearance="outline">
-                    <mat-label>Abierto</mat-label>
-                    <mat-slide-toggle [(ngModel)]="congreso.abierto"></mat-slide-toggle>
-                </mat-form-field> -->
+                </mat-form-field> 
                 <mat-form-field>
                     <mat-label>Fecha de apertura</mat-label>
-                    <input matInput [matDatepicker]="fechaApertura">
+                    <input matInput [matDatepicker]="fechaApertura" [(ngModel)]="congreso.fechaApertura" name="fechaApertura" required>
                     <mat-datepicker-toggle matIconSuffix [for]="fechaApertura"></mat-datepicker-toggle>
                     <mat-datepicker #fechaApertura></mat-datepicker>
                 </mat-form-field>
+                           
                 <mat-form-field>
                     <mat-label>Fecha de cierre</mat-label>
-                    <input matInput [matDatepicker]="fechaCierre">
+                    <input matInput [matDatepicker]="fechaCierre" [(ngModel)]="congreso.fechaCierre" name="fechaCierre">
                     <mat-datepicker-toggle matIconSuffix [for]="fechaCierre"></mat-datepicker-toggle>
                     <mat-datepicker #fechaCierre></mat-datepicker>
                 </mat-form-field>
+                           
+                <div>
+                    <mat-label>Abierto </mat-label>
+                    <mat-slide-toggle [(ngModel)]="congreso.abierto" name="abierto"></mat-slide-toggle>
+                </div>
                 <mat-dialog-actions align="end">
                     <button class="btn-guardar" type="submit" mat-button (click)="guardar(formulario)">Guardar</button>
                 </mat-dialog-actions>
@@ -65,12 +66,11 @@
     </div>
     <mat-divider></mat-divider>
     <div class="congreso__block_lista">
-        <app-lista-congreso>
+        <app-lista-congreso  [listaDeCongreso]="listaDeCongresos"
+        (congresoEliminar)="eliminarCongreso($event)"
+        (congresoActualizar)="recibiendoCongreso($event)">
 
         </app-lista-congreso>
-        <!-- <app-lista-lugar-procedencia [listaDeLugaresDeProcedencia]="listaDeLugaresDeProcedencia"
-            (congresoEliminar)="eliminarLugarDeProcedencia($event)"
-            (congresoActualizar)="recibiendoLugarDeProcedencia($event)">
-        </app-lista-lugar-procedencia> -->
+
     </div>
 </div>
