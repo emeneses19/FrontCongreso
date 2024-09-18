@@ -1,4 +1,4 @@
-<div class="no-datos">
+<div *ngIf="listaDeCongreso.length <=0" class="no-datos">
     <span>¡No hay datos!</span>
 </div>
 <table class="table">
@@ -28,8 +28,8 @@
             <td>{{congreso.codigoCongreso}}</td>
             <td> {{congreso.nombre}}</td>
             <td> {{congreso.abierto}}</td>
-            <td> {{congreso.fechaApertura}}</td>
-            <td> {{congreso.fechaCierre}}</td>
+            <td> {{congreso.fechaApertura | date: "dd-MM-yyyy"}}</td>
+            <td> {{congreso.fechaCierre | date: "dd-MM-yyyy" }}</td>
         </tr>
 
     </tbody>

@@ -1,5 +1,5 @@
 .formulario-agregar-evento {
-    width: 550px;
+    width: 700px;
     padding: 0 1.2rem;
 }
 .cabezera-formulario {
@@ -64,3 +64,51 @@ mat-dialog-actions .btn-guardar {
     transform: translate(-50%, -50%);
     z-index: 1;
   }
+
+  .hora__seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea el label y el input en la parte superior */
+    gap: 20px; /* Espacio entre las dos secciones */
+  }
+  
+  .hora, .tolerancia {
+    display: flex;
+    flex-direction: column; /* Para que el label esté encima del input */
+    position: relative;
+    flex: 1; /* Hace que ambos inputs se distribuyan equitativamente en el espacio */
+  }
+  
+  .hora input, .tolerancia input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 30px; /* Espacio para el ícono */
+    border: none;
+    border-bottom: 2px solid purple; /* Borde inferior morado */
+    font-size: 16px;
+  }
+  
+  .hora input:focus {
+    outline: none; /* Elimina el borde al hacer focus */
+    border-bottom: 2px solid darkviolet; /* Cambia el color del borde al hacer focus */
+  }
+  
+  .hora .material-icons {
+    position: absolute;
+    left: 0px; /* Colocar el ícono al inicio, sobre el input */
+    top: 30px; /* Asegurar que esté sobre el input */
+    font-size: 24px;
+    cursor: pointer; /* Mostrar que es clickeable */
+    color: purple;
+  }
+  
+  .hora mat-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+  }
+  
+  .hora input, .tolerancia input {
+    padding-left: 35px; /* Espacio para que el ícono no interfiera con el texto del input */
+  }
+  

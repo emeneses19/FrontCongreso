@@ -27,14 +27,26 @@
                     <mat-datepicker-toggle matIconSuffix [for]="fechaEvento"></mat-datepicker-toggle>
                     <mat-datepicker #fechaEvento></mat-datepicker>
                 </mat-form-field>
-                <div class="hora">
-                    <input [ngxTimepicker]="picker" placeholder="Hora de evento">
-                    <ngx-material-timepicker #picker></ngx-material-timepicker>
+                <div class="hora__seccion">
+                    <div class="hora">
+                        <mat-label>Hora del evento</mat-label>
+                        <input [ngxTimepicker]="picker">
+                        <ngx-material-timepicker #picker></ngx-material-timepicker>
+                        <span class="material-icons">
+                            schedule
+                        </span>
+                    </div>
+                    <div class="tolerancia">
+                        <mat-label>Hora del evento</mat-label>
+                        <input [ngxTimepicker]="tolerancia">
+                        <ngx-material-timepicker #tolerancia></ngx-material-timepicker>
+    
+                        <span class="material-icons">
+                            schedule
+                        </span>
+                    </div>
                 </div>
-                <div class="tolerancia">
-                    <input [ngxTimepicker]="tolerancia" placeholder="Tolerancia">
-                    <ngx-material-timepicker #tolerancia></ngx-material-timepicker>
-                </div>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
                     <input class="campo-no-valido" name="fecha" matInput required minlength="4">
@@ -56,7 +68,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Duración</mat-label>
                     <input matInput type="number" class="example-right-align" placeholder="0">
-                    <span matTextSuffix>minutos</span>
+                    <span matTextSuffix>Horas</span>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Congreso</mat-label>

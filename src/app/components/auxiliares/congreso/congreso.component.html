@@ -1,6 +1,6 @@
 <div class="congreso">
     <div class="cabecera">
-        <h2 mat-dialog-title>Agregar Congreso</h2>
+        <h2 mat-dialog-title>Congreso</h2>
         <mat-dialog-actions>
             <mat-icon mat-button mat-dialog-close aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
         </mat-dialog-actions>
@@ -45,7 +45,7 @@
                            
                 <mat-form-field>
                     <mat-label>Fecha de cierre</mat-label>
-                    <input matInput [matDatepicker]="fechaCierre" [(ngModel)]="congreso.fechaCierre" name="fechaCierre">
+                    <input matInput [matDatepicker]="fechaCierre" [(ngModel)]="congreso.fechaCierre" name="fechaCierre" required>
                     <mat-datepicker-toggle matIconSuffix [for]="fechaCierre"></mat-datepicker-toggle>
                     <mat-datepicker #fechaCierre></mat-datepicker>
                 </mat-form-field>

@@ -9,15 +9,36 @@ import { DateTime } from 'luxon';
 export class CongresoService {
   listaCongreso: CongresoModel[] = [
   {
-    codigoCongreso: '0111',
+    codigoCongreso: '019995222222',
+    nombre: 'Congreso 01',
+    abierto: true,
+    fechaApertura: new Date(),
+    fechaCierre: new Date()
+  },
+  {
+    codigoCongreso: '01771142411',
+    nombre: 'Congreso 01klklñ',
+    abierto: true,
+    fechaApertura: new Date(),
+    fechaCierre: new Date()
+  },
+  {
+    codigoCongreso: '06600214254',
     nombre: 'Congreso 01',
     abierto: true,
     fechaApertura: new Date(),
     fechaCierre: new Date()
   }
+
   ];
 
   constructor() { }
+  
+   // Método para formatear la fecha cuando sea necesario mostrarla
+   formatearFecha(fecha: Date): string {
+    return DateTime.fromJSDate(fecha).toFormat('yyyy/MM/dd');
+  }
+
   agregarCongreso(congreso: CongresoModel) {
     this.listaCongreso.push(congreso);
   }
@@ -37,6 +58,7 @@ export class CongresoService {
   obtenerCongreso(): Observable<CongresoModel[]> {
     return of(this.listaCongreso);
   }
+  
   filtroCongresoCodigo(codigoIngresado: string): Observable<CongresoModel[]> {
     const listaFiltrada = this.listaCongreso.filter(congreso => congreso.codigoCongreso.includes(codigoIngresado));
     if (listaFiltrada.length > 0) {

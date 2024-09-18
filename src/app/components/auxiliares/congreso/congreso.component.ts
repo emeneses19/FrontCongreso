@@ -65,11 +65,14 @@ export class CongresoComponent {
           this.cargando = false;
           this.resetearFormulario();
           this.congresoActualizar = new CongresoModel();
+          this.mensajeDeExito();
         } else {
           if (codigoExistente) {
             this._congresoService.actualizarCongreso(this.congreso);
             this.cargando = false;
-            this.resetearFormulario();
+            this.mensajeDeExito();
+            this.resetearFormulario();            
+            this.obtenerCongreso();
 
           } else {
             this.error = false;
