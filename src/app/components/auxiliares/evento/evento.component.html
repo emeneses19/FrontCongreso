@@ -21,32 +21,6 @@
                         </ng-container>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Fecha de evento</mat-label>
-                    <input matInput [matDatepicker]="fechaEvento">
-                    <mat-datepicker-toggle matIconSuffix [for]="fechaEvento"></mat-datepicker-toggle>
-                    <mat-datepicker #fechaEvento></mat-datepicker>
-                </mat-form-field>
-                <div class="hora__seccion">
-                    <div class="hora">
-                        <mat-label>Hora del evento</mat-label>
-                        <input [ngxTimepicker]="picker">
-                        <ngx-material-timepicker #picker></ngx-material-timepicker>
-                        <span class="material-icons">
-                            schedule
-                        </span>
-                    </div>
-                    <div class="tolerancia">
-                        <mat-label>Hora del evento</mat-label>
-                        <input [ngxTimepicker]="tolerancia">
-                        <ngx-material-timepicker #tolerancia></ngx-material-timepicker>
-    
-                        <span class="material-icons">
-                            schedule
-                        </span>
-                    </div>
-                </div>
-
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
                     <input class="campo-no-valido" name="fecha" matInput required minlength="4">
@@ -64,12 +38,38 @@
                     <mat-label>Descripción</mat-label>
                     <textarea matInput></textarea>
                 </mat-form-field>
+                <div class="section_principal">
+                    <mat-form-field class="section__secundario">
+                        <mat-label>Fecha de evento</mat-label>
+                        <input matInput [matDatepicker]="fechaEvento">
+                        <mat-datepicker-toggle matIconSuffix [for]="fechaEvento"></mat-datepicker-toggle>
+                        <mat-datepicker #fechaEvento></mat-datepicker>
+                    </mat-form-field>
+                    <div class=" section__secundario hora">
+                        <mat-label class="custom-label">Hora del evento</mat-label>
+                        <input [ngxTimepicker]="picker" class="custom-input">
+                        <ngx-material-timepicker #picker></ngx-material-timepicker>
+                        <span class="material-icons" (click)="picker.open()">
+                            schedule
+                        </span>
+                    </div>
+                </div>
+                <div class="section_principal">
+                    <div class="section__secundario hora">
+                        <mat-label class="custom-label">Tolerancia</mat-label>
+                        <input [ngxTimepicker]="tolerancia" class="custom-input">
+                        <ngx-material-timepicker #tolerancia></ngx-material-timepicker>
+                        <span class="material-icons" (click)="tolerancia.open()">
+                            schedule
+                        </span>
+                    </div>
+                    <mat-form-field class="section__secundario" appearance="outline">
+                        <mat-label>Duración</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0">
+                        <span matTextSuffix>Horas</span>
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Duración</mat-label>
-                    <input matInput type="number" class="example-right-align" placeholder="0">
-                    <span matTextSuffix>Horas</span>
-                </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Congreso</mat-label>
                     <mat-select>

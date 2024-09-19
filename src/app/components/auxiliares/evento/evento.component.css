@@ -34,7 +34,7 @@ mat-dialog-content .mensaje-error{
     display: flex;
     flex-direction: column;
 }
-mat-form-field {
+mat-form-field, .section_principal {
     width: 100%;
 }
 mat-dialog-actions{
@@ -65,50 +65,55 @@ mat-dialog-actions .btn-guardar {
     z-index: 1;
   }
 
-  .hora__seccion {
+  .section_principal {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Alinea el label y el input en la parte superior */
-    gap: 20px; /* Espacio entre las dos secciones */
+    justify-content: space-between; /* Coloca espacio entre los elementos secundarios */
+    gap: 20px; /* Espacio entre las dos columnas */
   }
   
-  .hora, .tolerancia {
+  .section__secundario {
+    flex: 1; /* Hace que ambos elementos ocupen el mismo ancho */
+  }
+  
+  .hora {
     display: flex;
-    flex-direction: column; /* Para que el label esté encima del input */
+    flex-direction: column;
     position: relative;
-    flex: 1; /* Hace que ambos inputs se distribuyan equitativamente en el espacio */
   }
   
-  .hora input, .tolerancia input {
-    width: 100%;
-    padding: 10px;
-    padding-left: 30px; /* Espacio para el ícono */
-    border: none;
-    border-bottom: 2px solid purple; /* Borde inferior morado */
-    font-size: 16px;
-  }
+
   
-  .hora input:focus {
-    outline: none; /* Elimina el borde al hacer focus */
-    border-bottom: 2px solid darkviolet; /* Cambia el color del borde al hacer focus */
-  }
-  
-  .hora .material-icons {
+  .material-icons {
     position: absolute;
-    left: 0px; /* Colocar el ícono al inicio, sobre el input */
-    top: 30px; /* Asegurar que esté sobre el input */
-    font-size: 24px;
-    cursor: pointer; /* Mostrar que es clickeable */
-    color: purple;
+    right: 10px;
+    transform: translateY(50%); 
+    font-size: 29px;
+    cursor: pointer;
+    color: #707070;
   }
-  
-  .hora mat-label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px; /* Espacio entre el label y el input */
+
+  .hora input{
+    border: 2px solid #b0b0b0; /* Borde inferior morado */
+    font-size: 16px;
+    z-index: auto;
+    height: 56px;
+    padding-left: 1.2rem;
+    border-radius: 0.2rem;
   }
-  
-  .hora input, .tolerancia input {
-    padding-left: 35px; /* Espacio para que el ícono no interfiera con el texto del input */
+
+  .hora input:focus{
+    outline: none; /* Elimina el borde al hacer focus */
+    border: 2px solid #3f51b5; /* Cambia el color del borde al hacer focus */
   }
+
+  .custom-label {
+    position: absolute;
+    top: -10px; /* Ajusta esta distancia para que el label quede justo encima del input */
+    left: 10px; /* Ajusta la distancia desde el borde izquierdo */
+    background-color: white; /* Fondo para que no se sobreponga con el borde */
+    padding: 0 5px; /* Espacio alrededor del label */
+    font-size: 12px; /* Ajusta el tamaño del label */
+    z-index: 1; /* Asegura que el label esté encima del input */
+  }
+
   
