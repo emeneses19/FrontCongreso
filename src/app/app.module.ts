@@ -20,7 +20,6 @@ import { ListaComponent } from './components/auxiliares/institucion-procedencia/
 import { LugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lugar-procedencia.component';
 import { ListaLugarProcedenciaComponent } from './components/auxiliares/lugar-procedencia/lista-lugar-procedencia/lista-lugar-procedencia.component';
 import { EventoComponent } from './components/auxiliares/evento/evento.component';
-import { AgregarEventoComponent } from './components/auxiliares/evento/agregar-evento/agregar-evento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ListaCongresoComponent } from './components/auxiliares/congreso/lista-congreso/lista-congreso.component';
 
@@ -37,7 +36,6 @@ import { ListaCongresoComponent } from './components/auxiliares/congreso/lista-c
     LugarProcedenciaComponent,
     ListaLugarProcedenciaComponent,
     EventoComponent,
-    AgregarEventoComponent,
     InicioComponent,
     ListaCongresoComponent
   ],

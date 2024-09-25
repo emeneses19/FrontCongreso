@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventoComponent } from './components/auxiliares/evento/evento.component';
 import { AuxiliaresComponent } from './components/auxiliares/auxiliares.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { AgregarEventoComponent } from './components/auxiliares/evento/agregar-evento/agregar-evento.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'inicio', pathMatch:'full'},

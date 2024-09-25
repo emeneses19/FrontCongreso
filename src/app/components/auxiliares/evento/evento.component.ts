@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AgregarEventoComponent } from './agregar-evento/agregar-evento.component';
+// import { AgregarEventoComponent } from './agregar-evento/agregar-evento.component';
 
 @Component({
   selector: 'app-evento',
@@ -9,8 +9,8 @@ import { AgregarEventoComponent } from './agregar-evento/agregar-evento.componen
 })
 export class EventoComponent {
   constructor(public dialog: MatDialog) {}
-  openAgregarEvento(){
-    this.dialog.open(AgregarEventoComponent);
-  }
+  // openAgregarEvento(){
+  //   this.dialog.open(AgregarEventoComponent);
+  // }
 
 }
